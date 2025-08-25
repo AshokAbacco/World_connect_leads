@@ -199,7 +199,7 @@
         <!-- Why Our Lists Stand Out -->
         <section class="mb-5">
             <h2 class="section-title text-center">
-                <i class="fas fa-star text-warning me-2"></i>
+
                 Why Our Attendees Lists Stand Out
             </h2>
             
@@ -238,35 +238,35 @@
             </div>
         </section>
 
-        <!-- Upcoming Events -->
+        <!-- table Upcoming Events -->
 
     <section class="events-section mb-5">
-            <h2 class="section-title text-center">
-                <i class="fas fa-calendar-alt me-2"></i>
-                Example Events We Cover
-            </h2>
+        <h2 class="section-title text-center">
+            <i class="fas fa-calendar-alt me-2"></i>
+            Example Events We Cover
+        </h2>
 
-      <div class="events-table table-responsive">
-        <table class="table table-hover modern-table mb-0">
-          <thead>
-            <tr>
-              <th scope="col" class="event-header">Event List Name</th>
-              <th scope="col" class="event-header">Category</th>
-              <th scope="col" class="event-header">Estimated Exhibitor</th>
-              <th scope="col" class="event-header">Estimated Attendees</th>
-            </tr>
-          </thead>
-          <tbody id="eventsTableBody" class="event-body">
-            <!-- Rows will be injected dynamically -->
-          </tbody>
-        </table>
-      </div>
+        <div class="events-table table-responsive">
+            <table class="table table-hover modern-table mb-0">
+            <thead style="padding: 50px;">
+                <tr>
+                    <th scope="col" class="event-header pl-5">Event List Name</th>
+                    <th scope="col" class="event-header">Category</th>
+                    <th scope="col" class="event-header">Estimated Exhibitor</th>
+                    <th scope="col" class="event-header">Estimated Attendees</th>
+                </tr>
+            </thead>
+            <tbody id="eventsTableBody" class="event-body">
+                <!-- Rows will be injected dynamically -->
+            </tbody>
+            </table>
+        </div>
 
-      <nav class="event-pagination">
-        <ul class="pagination justify-content-center" id="pagination">
-          <!-- Pagination buttons -->
-        </ul>
-      </nav>
+        <nav class="event-pagination">
+            <ul class="pagination justify-content-center" id="pagination">
+            <!-- Pagination buttons -->
+            </ul>
+        </nav>
     </section>
 
     <script>
@@ -275,236 +275,236 @@
 
     // ✅ Page 1
     [
-        { name: "BIO International Convention", category: "Biotechnology & Pharma", ex: "1,800+", at: "15,000+" },
-        { name: "HIMSS Global Health Conference", category: "Healthcare IT", ex: "1,200+", at: "35,000+" },
-        { name: "Mobile World Congress (MWC Barcelona)", category: "Telecom & Mobile Tech", ex: "2,400+", at: "109,000+" },
-        { name: "CPhI Worldwide", category: "Pharmaceuticals", ex: "2,500+", at: "45,000+" },
-        { name: "Interpack", category: "Packaging Industry", ex: "2,800+", at: "170,000+" },
+        { name: "BIO International Convention", category: "Biotechnology & Pharma", ex: "1,400+", at: "19,500+" },
+        { name: "HIMSS Global Health Conference", category: "Healthcare IT", ex: "950+", at: "30,000+" },
+        { name: "Mobile World Congress (MWC Barcelona)", category: "Telecom & Mobile Tech", ex: "2,900+", at: "109,000+" },
+        { name: "CPhI Worldwide", category: "Pharmaceuticals", ex: "2,400+", at: "62,000+" },
+        { name: "Interpack", category: "Packaging Industry", ex: "2,800+", at: "143,000+" },
         { name: "Hannover Messe", category: "Industrial Technology", ex: "6,500+", at: "215,000+" },
-        { name: "CES – Consumer Electronics Show", category: "Technology", ex: "4,500+", at: "180,000+" }
+        { name: "CES – Consumer Electronics Show", category: "Technology", ex: "4,500+", at: "141,000+" }
     ],
 
     // ✅ Page 2
     [
-        { name: "World Travel Market (WTM)", category: "Travel & Tourism", ex: "5,000+", at: "50,000+" },
-        { name: "Gamescom", category: "Video Games & Entertainment", ex: "1,000+", at: "320,000+" },
+        { name: "World Travel Market (WTM)", category: "Travel & Tourism", ex: "5,000+", at: "46,300+" },
+        { name: "Gamescom", category: "Video Games & Entertainment", ex: "1,568+", at: "357,000+" },
         { name: "InnoTrans", category: "Transport Technology", ex: "2,900+", at: "170,000+" },
-        { name: "Arab Health", category: "Healthcare", ex: "3,450+", at: "110,000+" },
-        { name: "drupa", category: "Printing Technology", ex: "1,800+", at: "260,000+" },
-        { name: "IFA Berlin", category: "Consumer Electronics", ex: "1,800+", at: "245,000+" },
-        { name: "Vitafoods Europe", category: "Nutrition & Wellness", ex: "1,500+", at: "25,000+" }
+        { name: "Arab Health", category: "Healthcare", ex: "3,800+", at: "60,000+" },
+        { name: "drupa", category: "Printing Technology", ex: "1,643+", at: "170,000+" },
+        { name: "IFA Berlin", category: "Consumer Electronics", ex: "1,800+", at: "215,000+" },
+        { name: "Vitafoods Europe", category: "Nutrition & Wellness", ex: "1,400+", at: "25,500+" }
     ],
 
     // ✅ Page 3
     [
-        { name: "Automechanika Frankfurt", category: "Automotive Aftermarket", ex: "5,000+", at: "130,000+" },
-        { name: "Pack Expo International", category: "Packaging & Processing", ex: "2,500+", at: "45,000+" },
+        { name: "Automechanika Frankfurt", category: "Automotive Aftermarket", ex: "4,200+", at: "108,000+" },
+        { name: "Pack Expo International", category: "Packaging & Processing", ex: " 29,500+", at: "48,000+" },
         { name: "Medica Trade Fair", category: "Medical Technology", ex: "5,300+", at: "123,000+" },
-        { name: "SIAL Paris", category: "Food & Beverage", ex: "7,200+", at: "310,000+" },
-        { name: "Host Milano", category: "Hospitality", ex: "2,200+", at: "200,000+" },
-        { name: "ProWein", category: "Wine & Spirits", ex: "6,800+", at: "61,000+" },
-        { name: "Anuga", category: "Food & Beverage", ex: "7,500+", at: "165,000+" }
+        { name: "SIAL Paris", category: "Food & Beverage", ex: "7,500+", at: "285,000+" },
+        { name: "Host Milano", category: "Hospitality", ex: "2,500+", at: "150,000+" },
+        { name: "ProWein", category: "Wine & Spirits", ex: "4,200+", at: "42,000+" },
+        { name: "Anuga", category: "Food & Beverage", ex: "7,500+", at: "140,000+" }
     ],
 
     // ✅ Page 4
     [
         { name: "China Import and Export Fair (Canton Fair)", category: "General Trade", ex: "25,000+", at: "200,000+" },
-        { name: "IMEX America", category: "Meetings & Events", ex: "3,500+", at: "14,000+" },
-        { name: "Cosmoprof Worldwide Bologna", category: "Cosmetics & Beauty", ex: "2,800+", at: "265,000+" },
-        { name: "GITEX Global", category: "Technology & Innovation", ex: "4,000+", at: "180,000+" },
-        { name: "Consumer Goods Fair (Ambiente)", category: "Lifestyle & Goods", ex: "4,500+", at: "140,000+" },
-        { name: "EuroShop", category: "Retail", ex: "2,300+", at: "94,000+" },
-        { name: "Farnborough International Airshow", category: "Aerospace & Defense", ex: "1,500+", at: "80,000+" }
+        { name: "IMEX America", category: "Meetings & Events", ex: "3,500+", at: "15,000+" },
+        { name: "Cosmoprof Worldwide Bologna", category: "Cosmetics & Beauty", ex: "3,100+", at: "255,000 +" },
+        { name: "GITEX Global", category: "Technology & Innovation", ex: "250+", at: "180,000+" },
+        { name: "Consumer Goods Fair (Ambiente)", category: "Lifestyle & Goods", ex: "4,660+", at: "148,000+" },
+        { name: "EuroShop", category: "Retail", ex: "500+", at: "14,500+" },
+        { name: "Farnborough International Airshow", category: "Aerospace & Defense", ex: "1,500+", at: "100,000+" }
     ],
 
     // ✅ Page 5
     [
-        { name: "Paris Air Show (Le Bourget)", category: "Aerospace & Defense", ex: "2,400+", at: "320,000+" },
-        { name: "MWC Las Vegas", category: "Mobile Technology", ex: "1,500+", at: "35,000+" },
-        { name: "ISE – Integrated Systems Europe", category: "AV & Systems Integration", ex: "1,300+", at: "58,000+" },
-        { name: "SEMICON West", category: "Semiconductors", ex: "1,000+", at: "30,000+" },
-        { name: "Agritechnica", category: "Agricultural Machinery", ex: "2,800+", at: "450,000+" },
-        { name: "CeBIT (revived)", category: "Technology", ex: "3,300+", at: "200,000+" },
-        { name: "AHR Expo", category: "HVACR", ex: "2,000+", at: "65,000+" }
+        { name: "Paris Air Show (Le Bourget)", category: "Aerospace & Defense", ex: "2,400+", at: "300,000+" },
+        { name: "MWC Las Vegas", category: "Mobile Technology", ex: "380+", at: "8,000+" },
+        { name: "ISE – Integrated Systems Europe", category: "AV & Systems Integration", ex: "1,605+", at: "85,351+" },
+        { name: "SEMICON West", category: "Semiconductors", ex: "650+", at: "20,000+" },
+        { name: "Agritechnica", category: "Agricultural Machinery", ex: "2,700+", at: "430,000+" },
+        { name: "CeBIT (revived)", category: "Technology", ex: "6,000+", at: "850,000+" },
+        { name: "AHR Expo", category: "HVACR", ex: "1,807+", at: "50,807+" }
     ],
 
     // ✅ Page 6
     [
-        { name: "Toy Fair New York", category: "Toys & Games", ex: "1,000+", at: "30,000+" },
-        { name: "SPIE Photonics West", category: "Photonics & Optics", ex: "1,200+", at: "23,000+" },
-        { name: "SHRM Annual Conference", category: "Human Resources", ex: "700+", at: "20,000+" },
-        { name: "BIO Europe", category: "Biotechnology", ex: "1,500+", at: "25,000+" },
-        { name: "ISPO Munich", category: "Sports Business", ex: "2,800+", at: "80,000+" },
-        { name: "Hotelex Shanghai", category: "Hospitality", ex: "2,500+", at: "150,000+" },
-        { name: "Dubai Airshow", category: "Aerospace & Defense", ex: "1,200+", at: "104,000+" }
+        { name: "Toy Fair New York", category: "Toys & Games", ex: "840+", at: "17,803+" },
+        { name: "SPIE Photonics West", category: "Photonics & Optics", ex: "1,588+", at: "24,000+" },
+        { name: "SHRM Annual Conference", category: "Human Resources", ex: "600+", at: "25,000+" },
+        { name: "BIO Europe", category: "Biotechnology", ex: "189+", at: "5,700+" },
+        { name: "ISPO Munich", category: "Sports Business", ex: "2,300+", at: "55,000+" },
+        { name: "Hotelex Shanghai", category: "Hospitality", ex: "3,000+", at: "420,000+" },
+        { name: "Dubai Airshow", category: "Aerospace & Defense", ex: "1,400+", at: "135,000+" }
     ],
 
     // ✅ Page 7
     [
-        { name: "Offshore Technology Conference (OTC)", category: "Oil & Gas", ex: "2,300+", at: "60,000+" },
-        { name: "Mining Indaba", category: "Mining & Resources", ex: "900+", at: "20,000+" },
+        { name: "Offshore Technology Conference (OTC)", category: "Oil & Gas", ex: "1,200+", at: "30,000+" },
+        { name: "Mining Indaba", category: "Mining & Resources", ex: "400+", at: "10,000+" },
         { name: "Smart City Expo World Congress", category: "Urban Innovation", ex: "1,100+", at: "25,000+" },
-        { name: "National Restaurant Association Show", category: "Foodservice", ex: "2,300+", at: "65,000+" },
-        { name: "South by Southwest (SXSW)", category: "Creative & Tech", ex: "2,000+", at: "280,000+" },
-        { name: "IFA India", category: "Electronics & Appliances", ex: "800+", at: "45,000+" },
-        { name: "Foodex Japan", category: "Food & Beverage", ex: "3,500+", at: "85,000+" }
+        { name: "National Restaurant Association Show", category: "Foodservice", ex: "2,300+", at: "53,000+" },
+        { name: "South by Southwest (SXSW)", category: "Creative & Tech", ex: "75+", at: "228,738+" },
+        { name: "IFA ", category: "Electronics & Appliances", ex: "1,800+", at: "215,000+" },
+        { name: "Foodex Japan", category: "Food & Beverage", ex: "2,930+", at: "72,000+" }
     ],
 
     // ✅ Page 8
     [
-        { name: "BIO Asia", category: "Biotech & Pharma", ex: "1,000+", at: "20,000+" },
-        { name: "RSA Conference", category: "Cybersecurity", ex: "600+", at: "45,000+" },
-        { name: "IFA Global Markets", category: "Consumer Electronics", ex: "900+", at: "50,000+" },
-        { name: "Build Expo USA", category: "Construction", ex: "700+", at: "18,000+" },
-        { name: "World Energy Congress", category: "Energy", ex: "1,200+", at: "30,000+" },
-        { name: "InfoComm", category: "Pro AV", ex: "1,000+", at: "40,000+" },
-        { name: "NRF Big Show", category: "Retail", ex: "1,200+", at: "38,000+" }
+        { name: "BIO ", category: "Biotech & Pharma", ex: "1,400+", at: "19,500+" },
+        { name: "RSA Conference", category: "Cybersecurity", ex: "650+", at: "44,000+" },
+        { name: "IFA Global Markets", category: "Consumer Electronics", ex: "1,800+", at: "215,000+" },
+        { name: "Build Expo USA", category: "Construction", ex: "420+", at: "5,500+" },
+        { name: "World Energy Congress", category: "Energy", ex: "100+", at: "18,000+" },
+        { name: "InfoComm", category: "Pro AV", ex: "817+", at: "30,998+" },
+        { name: "NRF Big Show", category: "Retail", ex: "1,000+", at: "40,000+" }
     ],
 
     // ✅ Page 9
     [
-        { name: "Intersec Dubai", category: "Security & Safety", ex: "1,500+", at: "45,000+" },
-        { name: "World Future Energy Summit", category: "Sustainability", ex: "1,000+", at: "30,000+" },
-        { name: "Gulfood", category: "Food & Beverage", ex: "5,000+", at: "100,000+" },
-        { name: "India Mobile Congress", category: "Telecom", ex: "1,200+", at: "50,000+" },
-        { name: "Jewellery & Gem World Hong Kong", category: "Jewelry", ex: "2,200+", at: "54,000+" },
-        { name: "London Book Fair", category: "Publishing", ex: "2,000+", at: "25,000+" },
-        { name: "Frankfurt Book Fair", category: "Publishing", ex: "7,500+", at: "250,000+" }
+        { name: "Intersec Dubai", category: "Security & Safety", ex: "1,200+", at: "52,000+" },
+        { name: "World Future Energy Summit", category: "Sustainability", ex: "270+", at: "30,000+" },
+        { name: "Gulfood", category: "Food & Beverage", ex: "5,500+", at: "100,000+" },
+        { name: "Mobile World Congress Americas", category: "Telecom", ex: "380+", at: "8,000+" },
+        { name: "Jewellery & Gem World Hong Kong", category: "Jewelry", ex: "3,300+", at: "50,000+" },
+        { name: "London Book Fair", category: "Publishing", ex: "1,000+", at: "30,000+" },
+        { name: "Frankfurt Book Fair", category: "Publishing", ex: "4,000+", at: "115,000+" }
     ],
 
     // ✅ Page 10
     [
-        { name: "BIO Latin America", category: "Biotechnology", ex: "700+", at: "15,000+" },
-        { name: "Offshore Europe", category: "Oil & Gas", ex: "1,500+", at: "35,000+" },
-        { name: "World Travel Awards", category: "Travel & Tourism", ex: "600+", at: "20,000+" },
-        { name: "Smart Manufacturing Summit", category: "Industry 4.0", ex: "800+", at: "18,000+" },
-        { name: "World Artificial Intelligence Conference", category: "AI & Tech", ex: "1,200+", at: "30,000+" },
-        { name: "AI Expo Europe", category: "Artificial Intelligence", ex: "500+", at: "15,000+" },
-        { name: "LegalTech New York", category: "Legal Tech", ex: "600+", at: "12,000+" }
+        { name: "BIO Latin America", category: "Biotechnology", ex: "1,500+", at: "20,000+" },
+        { name: "Offshore Europe", category: "Oil & Gas", ex: "500+", at: "30,000+" },
+        { name: "World Travel ", category: "Travel & Tourism", ex: "5,000+", at: "46,000+" },
+        { name: "Smart Manufacturing Summit", category: "Industry 4.0", ex: "250+", at: "15,000+" },
+        { name: "World Artificial Intelligence Conference", category: "AI & Tech", ex: "1,500+", at: "30,000+" },
+        { name: "AI Expo Europe", category: "Artificial Intelligence", ex: "200+", at: "8,000+" },
+        { name: "LegalTech New York", category: "Legal Tech", ex: "323+", at: "6,000+" }
     ],
 
-    // ✅ Page 11
+// ✅ Page 11
     [
-        { name: "Greenbuild Expo", category: "Sustainability", ex: "700+", at: "20,000+" },
-        { name: "COP Climate Summit", category: "Climate Change", ex: "2,000+", at: "50,000+" },
-        { name: "BIO India", category: "Biotech & Pharma", ex: "600+", at: "10,000+" },
-        { name: "NAB Show", category: "Broadcast & Media", ex: "1,800+", at: "65,000+" },
-        { name: "IBC Amsterdam", category: "Media Technology", ex: "1,700+", at: "56,000+" },
-        { name: "SupplySide West", category: "Health & Nutrition", ex: "1,200+", at: "25,000+" },
-        { name: "Fancy Food Show", category: "Food & Beverage", ex: "2,000+", at: "35,000+" }
+        { name: "Greenbuild Expo", category: "Sustainability", ex: "750+", at: "25,000+" },
+        { name: "COP Climate Summit", category: "Climate Change", ex: "58+", at: "80,000+" },
+        { name: "BIO India", category: "Biotech & Pharma", ex: "500+", at: "5000+" },
+        { name: "NAB Show", category: "Broadcast & Media", ex: "1,300+", at: "61,000+" },
+        { name: "IBC Amsterdam", category: "Media Technology", ex: "1,350+", at: "45,085+" },
+        { name: "SupplySide West", category: "Health & Nutrition", ex: "1,500+", at: "19,000+" },
+        { name: "Fancy Food Show", category: "Food & Beverage", ex: "2,500+", at: "32,000+" }
     ],
 
     // ✅ Page 12
     [
-        { name: "Bakery China", category: "Food & Bakery", ex: "2,000+", at: "200,000+" },
-        { name: "Beautyworld Middle East", category: "Cosmetics", ex: "1,800+", at: "50,000+" },
-        { name: "SIAL China", category: "Food & Beverage", ex: "4,300+", at: "150,000+" },
-        { name: "China Beauty Expo", category: "Cosmetics", ex: "3,500+", at: "250,000+" },
-        { name: "Asia Fruit Logistica", category: "Agriculture", ex: "900+", at: "18,000+" },
-        { name: "LogiMAT", category: "Logistics & Supply Chain", ex: "1,600+", at: "65,000+" },
-        { name: "Intersec Saudi Arabia", category: "Security", ex: "500+", at: "15,000+" }
+        { name: "Bakery China", category: "Food & Bakery", ex: "2,200+", at: "400,000+" },
+        { name: "Beautyworld Middle East", category: "Cosmetics", ex: "2,200+", at: "70,000+" },
+        { name: "SIAL China", category: "Food & Beverage", ex: "5,000+", at: "180,000+" },
+        { name: "China Beauty Expo", category: "Cosmetics", ex: "3,200+", at: "514,600+" },
+        { name: "Asia Fruit Logistica", category: "Agriculture", ex: "760+", at: "13,000+" },
+        { name: "LogiMAT", category: "Logistics & Supply Chain", ex: "1,620+", at: "65,700+" },
+        { name: "Intersec Saudi Arabia", category: "Security", ex: "370+", at: "27,000+" }
     ],
 
     // ✅ Page 13
     [
-        { name: "HIMSS Europe", category: "Healthcare IT", ex: "700+", at: "20,000+" },
-        { name: "Arabplast", category: "Plastics & Petrochemicals", ex: "900+", at: "30,000+" },
-        { name: "World Petroleum Congress", category: "Oil & Gas", ex: "1,200+", at: "20,000+" },
-        { name: "Offshore Wind Europe", category: "Renewable Energy", ex: "800+", at: "18,000+" },
-        { name: "Renewable Energy India Expo", category: "Clean Energy", ex: "600+", at: "25,000+" },
-        { name: "Solar Power International", category: "Solar Energy", ex: "1,200+", at: "30,000+" },
-        { name: "Energy Storage Europe", category: "Energy Storage", ex: "500+", at: "10,000+" }
+        { name: "HIMSS Europe", category: "Healthcare IT", ex: "100+", at: "3,000+" },
+        { name: "Arabplast", category: "Plastics & Petrochemicals", ex: "750+", at: "30,000+" },
+        { name: "World Petroleum Congress", category: "Oil & Gas", ex: " 200+", at: "15,000+" },
+        { name: "Offshore Wind Europe", category: "Renewable Energy", ex: "500+", at: "15,000+" },
+        { name: "Renewable Energy India Expo", category: "Clean Energy", ex: "800+", at: "40,000+" },
+        { name: "Solar Power International", category: "Solar Energy", ex: "1,350+", at: "40,000+" },
+        { name: "Energy Storage Europe", category: "Energy Storage", ex: "1,100+", at: "17,000+" }
     ],
 
     // ✅ Page 14
     [
-        { name: "WindEnergy Hamburg", category: "Renewable Energy", ex: "1,500+", at: "35,000+" },
-        { name: "Battery Show Europe", category: "Energy", ex: "900+", at: "20,000+" },
-        { name: "World Nuclear Exhibition", category: "Nuclear Energy", ex: "1,000+", at: "23,000+" },
-        { name: "InterSolar Europe", category: "Solar Energy", ex: "1,200+", at: "85,000+" },
-        { name: "E-World Energy & Water", category: "Energy & Utilities", ex: "800+", at: "25,000+" },
-        { name: "African Utility Week", category: "Utilities", ex: "1,000+", at: "15,000+" },
-        { name: "PowerGen International", category: "Energy", ex: "1,400+", at: "30,000+" }
+        { name: "WindEnergy Hamburg", category: "Renewable Energy", ex: "1,600+", at: "43,000+" },
+        { name: "Battery Show Europe", category: "Energy", ex: "1,100+", at: "21,000+" },
+        { name: "World Nuclear Exhibition", category: "Nuclear Energy", ex: "780+", at: "23,600+" },
+        { name: "InterSolar Europe", category: "Solar Energy", ex: "3,048+", at: "115,000+" },
+        { name: "E-World Energy & Water", category: "Energy & Utilities", ex: "980+", at: "33,000+" },
+        { name: "African Utility Week", category: "Utilities", ex: "350+", at: "10,000+" },
+        { name: "PowerGen International", category: "Energy", ex: "800+", at: "20,000+" }
     ],
 
     // ✅ Page 15
     [
-        { name: "World Water-Tech Innovation Summit", category: "Water Tech", ex: "500+", at: "10,000+" },
-        { name: "Aquatech Amsterdam", category: "Water", ex: "1,200+", at: "25,000+" },
-        { name: "Offshore Marine Expo", category: "Marine & Offshore", ex: "600+", at: "15,000+" },
-        { name: "Seatrade Cruise Global", category: "Cruise Industry", ex: "800+", at: "15,000+" },
-        { name: "Asia Pacific Maritime", category: "Shipping", ex: "1,500+", at: "15,000+" },
-        { name: "Nor-Shipping", category: "Maritime", ex: "1,000+", at: "20,000+" },
-        { name: "Posidonia", category: "Shipping", ex: "2,000+", at: "23,000+" }
+        { name: "World Water-Tech Innovation Summit", category: "Water Tech", ex: "37+", at: "500+" },
+        { name: "Aquatech Amsterdam", category: "Water", ex: "889+", at: "20,483+" },
+        { name: "Offshore Marine Expo", category: "Marine & Offshore", ex: "500+", at: "10,000+" },
+        { name: "Seatrade Cruise Global", category: "Cruise Industry", ex: "600+", at: "11,500+" },
+        { name: "Asia Pacific Maritime", category: "Shipping", ex: "750+", at: " 20,000+" },
+        { name: "Nor-Shipping", category: "Maritime", ex: "1,012+", at: "63,698+" },
+        { name: "Posidonia", category: "Shipping", ex: "2,038+", at: "32,527+" }
     ],
 
     // ✅ Page 16
     [
-        { name: "Offshore Mediterranean Conference", category: "Energy", ex: "700+", at: "12,000+" },
-        { name: "World Gas Conference", category: "Natural Gas", ex: "1,500+", at: "30,000+" },
-        { name: "Oil & Gas Asia", category: "Energy", ex: "1,200+", at: "20,000+" },
-        { name: "Energy Expo India", category: "Energy", ex: "1,000+", at: "15,000+" },
-        { name: "OTC Asia", category: "Oil & Gas", ex: "1,300+", at: "25,000+" },
-        { name: "Kazakhstan Energy Week", category: "Energy", ex: "800+", at: "12,000+" },
-        { name: "Middle East Electricity", category: "Power & Energy", ex: "1,600+", at: "30,000+" }
+        { name: "Offshore Mediterranean Conference", category: "Energy", ex: "634+", at: "20,000+" },
+        { name: "World Gas Conference", category: "Natural Gas", ex: "360+", at: "30,000+" },
+        { name: "Oil & Gas Asia", category: "Energy", ex: "1,142+", at: "36,260+" },
+        { name: "Energy Expo India", category: "Energy", ex: "800+", at: "40,000+" },
+        { name: "OTC Asia", category: "Oil & Gas", ex: "250+", at: "23,000+" },
+        { name: "Kazakhstan Energy Week", category: "Energy", ex: "300+", at: "2,500+" },
+        { name: "Middle East Electricity", category: "Power & Energy", ex: "1,600+", at: "40,000+" }
     ],
 
     // ✅ Page 17
     [
-        { name: "Mining World Russia", category: "Mining", ex: "900+", at: "15,000+" },
-        { name: "PDAC Convention", category: "Mining & Exploration", ex: "1,200+", at: "30,000+" },
-        { name: "Latin America Mining Expo", category: "Mining", ex: "1,000+", at: "18,000+" },
-        { name: "Mining Show Dubai", category: "Mining", ex: "800+", at: "10,000+" },
-        { name: "Expo Minera Peru", category: "Mining", ex: "1,100+", at: "20,000+" },
-        { name: "China Mining Expo", category: "Mining", ex: "1,500+", at: "25,000+" },
-        { name: "Africa Mining Indaba", category: "Mining", ex: "1,300+", at: "20,000+" }
+        { name: "Mining World Russia", category: "Mining", ex: "578+", at: "8,410+" },
+        { name: "PDAC Convention", category: "Mining & Exploration", ex: "1,100+", at: "27,353+" },
+        { name: "Latin America Mining Expo", category: "Mining", ex: "1,300+", at: "70,000+" },
+        { name: "Mining Show Dubai", category: "Mining", ex: "200+", at: "7,725+" },
+        { name: "Expo Minera Peru", category: "Mining", ex: "1,200+", at: "40,000+" },
+        { name: "China Mining Expo", category: "Mining", ex: "600+", at: "100,000+" },
+        { name: "Africa Mining Indaba", category: "Mining", ex: "400+", at: "10,000+" }
     ],
         // 📄 Page 18
     [
-        { name: "Foodex Japan", category: "Food & Beverage", ex: "3,000+", at: "85,000+" },
-        { name: "Japan Mobility Show", category: "Automotive", ex: "1,000+", at: "1,000,000+" },
-        { name: "Renewable Japan Expo", category: "Energy", ex: "700+", at: "25,000+" },
-        { name: "Agro Animal Show", category: "Agriculture", ex: "500+", at: "12,000+" },
-        { name: "PharmaTech Expo India", category: "Pharmaceuticals", ex: "400+", at: "10,000+" },
-        { name: "Japan Drone Expo", category: "Drones", ex: "250+", at: "6,000+" },
-        { name: "Tokyo Game Show", category: "Video Games", ex: "600+", at: "250,000+" }
+        { name: "Foodex Japan", category: "Food & Beverage", ex: "3,300+", at: "80,000+" },
+        { name: "Japan Mobility Show", category: "Automotive", ex: "475+", at: "1,112,000+" },
+        { name: "Renewable Japan Expo", category: "Energy", ex: "80+", at: "6,000+" },
+        { name: "Agro Animal Show", category: "Agriculture", ex: "1,308+", at: "185,000+" },
+        { name: "PharmaTech Expo India", category: "Pharmaceuticals", ex: "400+", at: "22,000+" },
+        { name: "Japan Drone Expo", category: "Drones", ex: "285+", at: "23,049+" },
+        { name: "Tokyo Game Show", category: "Video Games", ex: "985+", at: "274,739+" }
     
     ],
 
     // 📄 Page 19
     [
-        { name: "IFAT Munich", category: "Environment & Water", ex: "3,300+", at: "141,000+" },
-        { name: "Expo Riva Schuh", category: "Footwear", ex: "1,500+", at: "12,000+" },
-        { name: "InterSolar North America", category: "Solar", ex: "600+", at: "18,000+" },
-        { name: "Seafood Expo North America", category: "Seafood", ex: "1,300+", at: "22,000+" },
-        { name: "EuroTier", category: "Animal Farming", ex: "2,600+", at: "155,000+" },
-        { name: "PowerGen International", category: "Energy", ex: "800+", at: "20,000+" },
-        { name: "BIO World Congress on Industrial Biotech", category: "Biotech", ex: "500+", at: "7,000+" }
+        { name: "IFAT Munich", category: "Environment & Water", ex: "3,211+", at: "142,000+" },
+        { name: "Expo Riva Schuh", category: "Footwear", ex: "1,100+", at: "8,000+" },
+        { name: "InterSolar North America", category: "Solar", ex: "500+", at: "9,000+" },
+        { name: "Seafood Expo North America", category: "Seafood", ex: "1,215+", at: "20,000+" },
+        { name: "EuroTier", category: "Animal Farming", ex: "2,193+", at: "120,000+" },
+        { name: "PowerGen International", category: "Energy", ex: "400+", at: "7,200+" },
+        { name: "BIO World Congress on Industrial Biotech", category: "Biotech", ex: "50+", at: "1,200+" }
     
     ],
 
     // 📄 Page 20
      [
-        { name: "China International Furniture Fair (CIFF)", category: "Furniture", ex: "4,000+", at: "200,000+" },
-        { name: "Expo Agroalimentaria Guanajuato", category: "Agriculture", ex: "1,200+", at: "120,000+" },
-        { name: "EnergyDecentral", category: "Energy & Renewables", ex: "500+", at: "30,000+" },
-        { name: "Seoul Food & Hotel", category: "Food & Hospitality", ex: "1,000+", at: "50,000+" },
-        { name: "World Travel Expo", category: "Tourism", ex: "600+", at: "20,000+" },
-        { name: "BioJapan", category: "Biotechnology", ex: "900+", at: "15,000+" },
-        { name: "AgriTech Israel", category: "Agriculture Tech", ex: "400+", at: "10,000+" },
+        { name: "China International Furniture Fair (CIFF)", category: "Furniture", ex: "4,900+", at: "363,825+" },
+        { name: "Expo Agroalimentaria Guanajuato", category: "Agriculture", ex: "800+", at: "120,000+" },
+        { name: "EnergyDecentral", category: "Energy & Renewables", ex: "2,200+", at: "120,000+" },
+        { name: "Seoul Food & Hotel", category: "Food & Hospitality", ex: "1,400+", at: "45,332+" },
+        { name: "World Travel Expo", category: "Tourism", ex: "2,000+", at: "40,000+" },
+        { name: "BioJapan", category: "Biotechnology", ex: "1,052+", at: "18,003+" },
+        { name: "AgriTech Israel", category: "Agriculture Tech", ex: "250+", at: "3,500+" }
         
     ]
     //page21
     [
-        { name: "Wine & Gourmet Japan", category: "Wine & Food", ex: "400+", at: "10,000+" },
-        { name: "Nano Korea", category: "Nanotech", ex: "350+", at: "8,000+" },
-        { name: "Asia Pharma Expo", category: "Pharma", ex: "600+", at: "15,000+" },
-        { name: "Asia Lab Expo", category: "Laboratory Tech", ex: "400+", at: "10,000+" },
-        { name: "MWC Korea", category: "Telecom", ex: "500+", at: "15,000+" },
-        { name: "Photonics West", category: "Photonics", ex: "1,300+", at: "23,000+" },
-        { name: "Singapore FinTech Festival", category: "Finance & Tech", ex: "1,000+", at: "60,000+" },
-        { name: "China Sport Show", category: "Sports Industry", ex: "1,500+", at: "70,000+" },
-        { name: "Interplastica", category: "Plastics", ex: "800+", at: "25,000+" }
+        { name: "Wine & Gourmet Japan", category: "Wine & Food", ex: "190+", at: "56,685+" },
+        { name: "Nano Korea", category: "Nanotech", ex: "450+", at: "12,000+" },
+        { name: "Asia Pharma Expo", category: "Pharma", ex: "750+", at: "14,593+" },
+        { name: "Asia Lab Expo", category: "Laboratory Tech", ex: "200+", at: "5,000+" },
+        { name: "MWC Korea", category: "Telecom", ex: "2,900+", at: "109,000+" },
+        { name: "Photonics West", category: "Photonics", ex: "1,588+", at: "24,000+" },
+        { name: "Singapore FinTech Festival", category: "Finance & Tech", ex: "600+", at: "65,000+" },
+        { name: "China Sport Show", category: "Sports Industry", ex: "1,812+", at: "120,000+" },
+        { name: "Interplastica", category: "Plastics", ex: "1,000+", at: "33,000+" }
     ]
 
         ];
@@ -635,8 +635,8 @@
     <p class="lead mb-4">Get in touch today and request a sample Attendees list tailored to your industry.</p>
     
     <div class="d-flex justify-content-center gap-3 flex-wrap">
-      <!-- Phone Link -->
-      <a href="tel:+1 19810-4929" class="btn btn-custom btn-lg text-decoration-none">
+      <!-- Phone Link tel:+1 19810-4929 -->
+      <a href="" class="btn btn-custom btn-lg text-decoration-none">
         <i class="fas fa-phone me-2"></i> Request Sample List
       </a>
     </div>
@@ -664,7 +664,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <h5><i class="fas fa-globe me-2"></i>World Connect Leads</h5>
                 <p>
-                At World Connect Leads, we aim to help our clientele with all their contact and company data needs.
+                At World Connect Leads, we aim to help our clients with all their contact and company data needs.
                 We collect contact data of Expo Attendees, Exhibitors, Trade Shows, Conferences, Fairs & Seminars
                 and organize them into mailing lists for your business growth.
                 </p>
@@ -674,7 +674,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <h5>Our Links</h5>
                 <ul class="p-0">
-                <li><a href="/homepage.html"><i class="fas fa-angle-right me-2"></i>Home</a></li>
+                <li><a href="/index.html"><i class="fas fa-angle-right me-2"></i>Home</a></li>
                 <li><a href="/events.html"><i class="fas fa-angle-right me-2"></i>Events</a></li>
                 <li><a href="/about.html"><i class="fas fa-angle-right me-2"></i>Who We Are</a></li>
                 <li><a href="/contact.html"><i class="fas fa-angle-right me-2"></i>Contact Us</a></li>
@@ -691,7 +691,7 @@
                   USA
                 </p>
 
-                <p><i class="fas fa-phone me-2 text-info"></i> +1 19810-4929 </p>
+                <!-- <p><i class="fas fa-phone me-2 text-info"></i> +1 19810-4929 </p> -->
                 <p>
                 <i class="fas fa-envelope me-2 text-info"></i> 
                 <a href="mailto:info@worldconnectleads.com" class="text-light no-link">info@worldconnectleads.com</a>

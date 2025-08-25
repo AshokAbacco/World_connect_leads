@@ -332,9 +332,8 @@
 
     .event-header {
       border: none;
-      padding: 1.2rem 1rem;
+      padding: 5.2rem 1rem;
       font-weight: 600;
-      text-transform: uppercase;
       letter-spacing: 0.5px;
       font-size: 0.9rem;
       color: white;
@@ -406,6 +405,23 @@
       transition: all 0.3s ease;
       background: white;
     }
+
+
+    /* 🌐 Light Blue Professional Table Header */
+.event-header {
+    background: #e7f1ff;      /* very light blue */
+    color: #0d47a1;           /* deep professional blue */
+    font-weight: 600;
+    text-align: left;
+    padding: 24px 12px;
+    font-size: 15px;
+    border-bottom: 2px solid #90caf9; /* soft blue underline */
+    
+    letter-spacing: 0.6px;
+}
+
+ 
+
     /* .pagination .page-link:hover {
       background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
       color: white;
@@ -436,6 +452,89 @@
       }
       .pagination .page-link { padding: 0.5rem 0.75rem; font-size: 0.9rem; }
     }
+
+    /* 📱 Responsive Styles */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .event-header {
+    font-size: 0.85rem;
+    padding: 16px 8px;
+  }
+
+  .event-body td {
+    font-size: 0.85rem;
+    padding: 0.9rem 0.6rem;
+  }
+
+  .pagination .page-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  /* ✅ Convert table to "card style" for mobiles */
+  .modern-table thead {
+    display: none; /* hide headers */
+  }
+
+  .modern-table,
+  .modern-table tbody,
+  .modern-table tr,
+  .modern-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .modern-table tr {
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.1);
+    background: #fff;
+    padding: 0.8rem;
+  }
+
+  .modern-table td {
+    text-align: left;
+    padding: 0.5rem 0.8rem;
+    position: relative;
+    font-size: 0.9rem;
+  }
+
+  .modern-table td::before {
+    content: attr(data-label); /* show column name */
+    font-weight: 600;
+    color: #1565c0;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+@media (max-width: 375px) {
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .modern-table td {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .pagination .page-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
+  }
+}
 
      .footer {
       background-color: #0a1f44; /* Deep Blue */

@@ -105,6 +105,22 @@
 }
 
 /* ✅ Responsive adjustments for small screens */
+@media (max-width: 425px){
+    .nav-link {
+    font-size: 0.9rem; /* shrink nav links */
+    padding: 6px 0px;
+    margin-right: 100px;
+
+  }
+}
+
+@media (max-width: 768px){
+    .nav-link {
+    font-size: 0.9rem; /* shrink nav links */
+    padding: 6px 0px;
+    margin-right: 450px;
+  }
+}
 @media (max-width: 375px) {
   .navbar-brand {
     font-size: 1.1rem; /* smaller brand text */
@@ -112,7 +128,8 @@
 
   .nav-link {
     font-size: 0.9rem; /* shrink nav links */
-    padding: 6px 4px;
+    padding: 6px 0px;
+    margin-right: 100px;
   }
 
   .navbar-toggler {
@@ -128,11 +145,13 @@
 
   .nav-link {
     font-size: 0.85rem;
+  
   }
 
   .navbar-toggler {
     padding: 3px 5px;
     font-size: 0.8rem;
+    
   }
 }
 
