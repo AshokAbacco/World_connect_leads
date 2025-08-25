@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+/* 🌐 Navbar Styles */
+:root {
+  --primary-blue: #2563eb;
+  --gray-600: #64748b;
+}
+
+/* Main navbar container */
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  padding: 1rem 1.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Brand name/logo */
+/* Brand name/logo */
+.navbar-brand {
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2vw, 1.8rem); /* min → responsive → max */
+  color: var(--primary-blue) !important;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Individual links */
+.nav-link {
+  font-weight: 600;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem); /* scales nicely */
+  color: var(--gray-600) !important;
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 4px 6px;
+  text-decoration: none;
+
+}
+
+.collapse
+{
+    margin-right: 150px;
+}
+
+/* Navigation list */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  margin-right: 150px;
+  padding: 0;
+}
+
+ 
+
+/* Hover effect */
+.nav-link:hover {
+  color: var(--primary-blue) !important;
+  transform: translateY(-2px);
+}
+
+/* Underline animation */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  background: var(--primary-blue);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Active link */
+.nav-link.active {
+  color: var(--primary-blue) !important;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+/* Remove forced margin */
+.collapse {
+  margin-right: 0 !important;
+}
+
+/* ✅ Responsive adjustments for small screens */
+@media (max-width: 375px) {
+  .navbar-brand {
+    font-size: 1.1rem; /* smaller brand text */
+  }
+
+  .nav-link {
+    font-size: 0.9rem; /* shrink nav links */
+    padding: 6px 4px;
+  }
+
+  .navbar-toggler {
+    padding: 4px 6px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar-brand {
+    font-size: 1rem; /* even smaller */
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+  }
+
+  .navbar-toggler {
+    padding: 3px 5px;
+    font-size: 0.8rem;
+  }
+}
+
+</style>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold d-flex align-items-center" href="/homepage.html">
+      <i class="fas fa-globe me-2"></i> World Connect Leads
+    </a>
+
+    <!-- Toggle button (kept at top-right) -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-lg-auto text-start">
+        <li class="nav-item"><a class="nav-link" href="homepage.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="whoWe.html">Who We Are</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs | World Connect Leads</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f8fafc;
+    }
+    .faq-header {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #fff;
+      padding: 100px 40px;
+      text-align: center;
+      border-radius: 0 0 30px 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .faq-header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    .faq-section {
+      padding: 60px 20px;
+    }
+    .accordion-button {
+      font-weight: 600;
+      color: #1e293b;
+    }
+    .accordion-button:not(.collapsed) {
+      color: #2563eb;
+      background-color: #e0ebff;
+    }
+    .accordion-body {
+      color: #475569;
+    }
+
+    
+    .footer {
+      background-color: #0a1f44; /* Deep Blue */
+      color: #cfd8e3;
+      padding: 40px 0 20px;
+    }
+    .footer h5 {
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .footer p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .footer ul li {
+      list-style: none;
+      margin-bottom: 10px;
+    }
+    .footer ul li a {
+      text-decoration: none;
+      color: #cfd8e3;
+      transition: all 0.3s ease;
+    }
+    .footer ul li a:hover {
+      color: #00c3ff;
+      padding-left: 5px;
+    }
+    .footer .social-icons a {
+      font-size: 18px;
+      color: #cfd8e3;
+      margin-right: 12px;
+      transition: 0.3s;
+    }
+    .footer .social-icons a:hover {
+      color: #00c3ff;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 10px;
+      margin-top: 10px;
+      text-align: center;
+      font-size: 14px;
+      color: #9caec7;
+    }
+
+  </style>
+</head>
+<body>
+
+        <!-- Navigation -->
+     <div id="navbar"></div>
+
+    <script>
+        fetch("navbar.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+
+  <!-- FAQ Header -->
+  <header class="faq-header mt-5">
+    <h1><i class="fas fa-question-circle me-2"></i> Frequently Asked Questions</h1>
+    <p class="mt-2">Find answers to common queries about our services</p>
+  </header>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="accordion" id="faqAccordion">
+        
+        <!-- FAQ Item 1 -->
+        <div class="accordion-item mb-3">
+          <h2 class="accordion-header" id="faqOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+              What services does World Connect Leads provide?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              We specialize in attendee databases, event leads, contract staffing, soft service management, and more. Our solutions are designed to help your business grow effectively.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="accordion-item mb-3">
+          <h2 class="accordion-header" id="faqTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+              How accurate is your attendee database?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Our databases are regularly updated and verified through multiple channels to ensure maximum accuracy and deliver highly relevant leads.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="accordion-item mb-3">
+          <h2 class="accordion-header" id="faqThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+              Can I request a sample before purchasing?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Yes, we provide free samples upon request so you can evaluate the quality of our data before making a decision.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="accordion-item mb-3">
+          <h2 class="accordion-header" id="faqFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+              How can I contact your team?
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              You can reach us through our <a href="/contact.html">Contact Page</a>, call our support number, or email us. Our team will respond within 24 hours.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="accordion-item mb-3">
+          <h2 class="accordion-header" id="faqFive">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+              Do you provide international attendee lists?
+            </button>
+          </h2>
+          <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Yes, our attendee databases cover major international trade shows, conferences, and events across industries worldwide.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 6 -->
+        <div class="accordion-item mb-3">
+          <h2 class="accordion-header" id="faqSix">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix">
+              How soon will I receive the database after purchase?
+            </button>
+          </h2>
+          <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Once your order is confirmed, we typically deliver the database within 24–48 hours in your preferred format (Excel, CSV, etc.).
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 7 -->
+        <div class="accordion-item mb-3">
+          <h2 class="accordion-header" id="faqSeven">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven">
+              Do you offer customized attendee lists based on my industry?
+            </button>
+          </h2>
+          <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Absolutely! We can tailor attendee databases based on your specific industry, target audience, and event requirements to maximize your ROI.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+     <!-- Footer -->
+  <footer class="footer">
+        <div class="container">
+            <div class="row">
+            
+            <!-- Company Info -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5><i class="fas fa-globe me-2"></i>World Connect Leads</h5>
+                <p>
+                At World Connect Leads, we aim to help our clientele with all their contact and company data needs.
+                We collect contact data of Expo Attendees, Exhibitors, Trade Shows, Conferences, Fairs & Seminars
+                and organize them into mailing lists for your business growth.
+                </p>
+            </div>
+
+            <!-- Links -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5>Our Links</h5>
+                <ul class="p-0">
+                <li><a href="/homepage.html"><i class="fas fa-angle-right me-2"></i>Home</a></li>
+                <li><a href="/events.html"><i class="fas fa-angle-right me-2"></i>Events</a></li>
+                <li><a href="/about.html"><i class="fas fa-angle-right me-2"></i>Who We Are</a></li>
+                <li><a href="/contact.html"><i class="fas fa-angle-right me-2"></i>Contact Us</a></li>
+                <li><a href="/FAQ.html"><i class="fas fa-angle-right me-2"></i>FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5>Contact Us</h5>
+                <p class="address-text">
+                  3524 Silverside Road Suite 35B<br>
+                  Wilmington, DE 19810-4929<br>
+                  USA
+                </p>
+
+                <p><i class="fas fa-phone me-2 text-info"></i> +1 19810-4929 </p>
+                <p>
+                <i class="fas fa-envelope me-2 text-info"></i> 
+                <a href="mailto:info@worldconnectleads.com" class="text-light no-link">info@worldconnectleads.com</a>
+                </p>
+
+                <!-- Social Icons -->
+                <div class="social-icons mt-3">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+            <p>© 2025 World Connect Leads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

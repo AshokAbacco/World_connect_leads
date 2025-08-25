@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Your Company</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    .hero-section {
+      background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+      color: white;
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-section {
+      padding: 80px 0;
+      background-color: #f8f9fa;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-info {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      height: 100%;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .contact-info-item i {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .social-icons {
+      margin-top: 30px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+      color: white;
+      text-align: center;
+      line-height: 45px;
+      border-radius: 50%;
+      margin-right: 10px;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      transform: translateY(-3px);
+      color: white;
+    }
+
+    /* Map Section Styling */
+    .map-section {
+      width: 100%;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #f8f9fa, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .map-container {
+      width: 100%;
+      max-width: 1200px;
+      height: 500px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      border: 4px solid #fff;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .map-container {
+        height: 350px;
+        border-radius: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .map-container {
+        height: 280px;
+        border-radius: 10px;
+      }
+    }
+
+     .footer {
+      background-color: #0a1f44; /* Deep Blue */
+      color: #cfd8e3;
+      padding: 40px 0 20px;
+    }
+    .footer h5 {
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .footer p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .footer ul li {
+      list-style: none;
+      margin-bottom: 10px;
+    }
+    .footer ul li a {
+      text-decoration: none;
+      color: #cfd8e3;
+      transition: all 0.3s ease;
+    }
+    .footer ul li a:hover {
+      color: #00c3ff;
+      padding-left: 5px;
+    }
+    .footer .social-icons a {
+      font-size: 18px;
+      color: #cfd8e3;
+      margin-right: 12px;
+      transition: 0.3s;
+    }
+    .footer .social-icons a:hover {
+      color: #00c3ff;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 10px;
+      margin-top: 10px;
+      text-align: center;
+      font-size: 14px;
+      color: #9caec7;
+    }
+    .no-link {
+      text-decoration: none !important; /* removes underline */
+      color: #fff !important;           /* ensures white text */
+    }
+
+    .no-link:hover {
+      color: #0dcaf0 !important; /* optional: blue on hover (Bootstrap info color) */
+    }
+
+
+  </style>
+</head>
+<body>
+<!-- Navigation -->
+    <div id="navbar"></div>
+
+    <script>
+        fetch("navbar.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+  
+    <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center hero-content">
+          <h1 class="display-4 fw-bold mb-4">Get In Touch</h1>
+          <p class="lead mb-0">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row">
+        <!-- Contact Form -->
+        <div class="col-lg-8 mb-4">
+          <div class="contact-form">
+            <h3 class="mb-4">Send us a Message</h3>
+            <form id="contactForm">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="firstName" class="form-label">First Name</label>
+                  <input type="text" class="form-control" id="firstName" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="lastName" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" id="lastName" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="phone" class="form-label">Phone Number</label>
+                  <input type="tel" class="form-control" id="phone">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" class="form-control" id="subject" required>
+              </div>
+              <div class="mb-4">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg">
+                <i class="fas fa-paper-plane me-2"></i>Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-lg-4">
+          <div class="contact-info">
+            <h3 class="mb-4">Contact Information</h3>
+            <div class="contact-info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                  <h6 class="mb-1">Address</h6>
+                  <p class="address-text">
+                    3524 Silverside Road Suite 35B<br>
+                    Wilmington, DE 19810-4929<br>
+                    USA
+                  </p>
+              </div>  
+            </div>
+            <div class="contact-info-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h6 class="mb-1">Phone</h6>
+                <p class="mb-0 text-muted">+1 19810-4929 </p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h6 class="mb-1">Email</h6>
+                <p class="mb-0 text-muted">info@worldconnectleads.com</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <i class="fas fa-clock"></i>
+              <div>
+                <h6 class="mb-1">Business Hours</h6>
+                <p class="mb-0 text-muted">Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: 10:00 AM - 4:00 PM<br>Sun: Closed</p>
+              </div>
+            </div>
+            <div class="social-icons">
+              <h6 class="mb-3">Follow Us</h6>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+ 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map-section">
+    <div class="map-container">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3084.9187901314417!2d-75.54452049999999!3d39.807786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6fb58b0c8dae9%3A0x401359cdeadd1248!2s3524%20Silverside%20Rd%20Suite%2035B%2C%20Wilmington%2C%20DE%2019810%2C%20USA!5e1!3m2!1sen!2sin!4v1756127663999!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    </div>
+  </section>
+
+    <!-- Footer -->
+     <footer class="footer">
+        <div class="container">
+            <div class="row">
+            
+            <!-- Company Info -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5><i class="fas fa-globe me-2"></i>World Connect Leads</h5>
+                <p>
+                At World Connect Leads, we aim to help our clientele with all their contact and company data needs.
+                We collect contact data of Expo Attendees, Exhibitors, Trade Shows, Conferences, Fairs & Seminars
+                and organize them into mailing lists for your business growth.
+                </p>
+            </div>
+
+            <!-- Links -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5>Our Links</h5>
+                <ul class="p-0">
+                <li><a href="/homepage.html"><i class="fas fa-angle-right me-2"></i>Home</a></li>
+                <li><a href="/events.html"><i class="fas fa-angle-right me-2"></i>Events</a></li>
+                <li><a href="/about.html"><i class="fas fa-angle-right me-2"></i>Who We Are</a></li>
+                <li><a href="/contact.html"><i class="fas fa-angle-right me-2"></i>Contact Us</a></li>
+                <li><a href="/FAQ.html"><i class="fas fa-angle-right me-2"></i>FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5>Contact Us</h5>
+                <p class="address-text">
+                  3524 Silverside Road Suite 35B<br>
+                  Wilmington, DE 19810-4929<br>
+                  USA
+                </p>
+
+                <p><i class="fas fa-phone me-2 text-info"></i> +1 19810-4929 </p>
+                <p>
+                <i class="fas fa-envelope me-2 text-info"></i> 
+                <a href="mailto:info@worldconnectleads.com" class="text-light no-link">info@worldconnectleads.com</a>
+                </p>
+
+                <!-- Social Icons -->
+                <div class="social-icons mt-3">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+            <p>© 2025 World Connect Leads. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
