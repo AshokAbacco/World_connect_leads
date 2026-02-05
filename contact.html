@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -130,42 +131,51 @@
       }
     }
 
-     .footer {
-      background-color: #0a1f44; /* Deep Blue */
+    .footer {
+      background-color: #0a1f44;
+      /* Deep Blue */
       color: #cfd8e3;
       padding: 40px 0 20px;
     }
+
     .footer h5 {
       font-weight: 600;
       margin-bottom: 20px;
       color: #fff;
     }
+
     .footer p {
       font-size: 15px;
       line-height: 1.6;
     }
+
     .footer ul li {
       list-style: none;
       margin-bottom: 10px;
     }
+
     .footer ul li a {
       text-decoration: none;
       color: #cfd8e3;
       transition: all 0.3s ease;
     }
+
     .footer ul li a:hover {
       color: #00c3ff;
       padding-left: 5px;
     }
+
     .footer .social-icons a {
       font-size: 18px;
       color: #cfd8e3;
       margin-right: 12px;
       transition: 0.3s;
     }
+
     .footer .social-icons a:hover {
       color: #00c3ff;
     }
+
     .footer-bottom {
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       padding-top: 10px;
@@ -174,31 +184,172 @@
       font-size: 14px;
       color: #9caec7;
     }
+
     .no-link {
-      text-decoration: none !important; /* removes underline */
-      color: #fff !important;           /* ensures white text */
+      text-decoration: none !important;
+      /* removes underline */
+      color: #fff !important;
+      /* ensures white text */
     }
 
     .no-link:hover {
-      color: #0dcaf0 !important; /* optional: blue on hover (Bootstrap info color) */
+      color: #0dcaf0 !important;
+      /* optional: blue on hover (Bootstrap info color) */
     }
 
 
+
+    /* ================================
+   DATA PARTNERS SECTION (ISOLATED)
+================================ */
+
+    .data-partners-section {
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #f8f9fa, #ffffff);
+      position: relative;
+      isolation: isolate;
+      min-height: 320px;
+    }
+
+    .data-partners-section .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* Section title */
+    .section-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      color: #0f172a;
+    }
+
+    /* Grid layout */
+    .data-partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 40px;
+      place-items: center;
+    }
+
+    /* Card */
+    .data-partner-card {
+      width: 100%;
+      max-width: 320px;
+      height: 180px;
+      /* 🔑 more vertical room */
+
+      background-color: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .data-partner-card:hover {
+      transform: translateY(-6px);
+
+      /* Primary blue glow */
+      box-shadow:
+        0 18px 40px rgba(59, 130, 246, 0.25),
+        /* blue depth */
+        0 0 0 1px rgba(99, 102, 241, 0.35);
+      /* subtle blue outline */
+    }
+
+    /* Stack logo + divider + role */
+    .partner-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 🔑 UNIFORM LOGO SLOT (prevents layout break) */
+    .partner-logo {
+      width: 180px;
+      height: 90px;
+      /* fixed slot height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    /* Bounce Cure – perfect circle */
+    .partner-logo.bounce-cure {
+      width: 105px;
+      height: 105px;
+
+      background-image: url("../image/rasul.jpg");
+      background-size: cover;
+      background-position: center;
+
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    /* Verify Emails */
+    .partner-logo.veriemails {
+      background-image: url("../image/veriemails.png");
+    }
+
+    /* Global Business Alliance */
+    .partner-logo.gba {
+      background-image: url("../image/global_business_alliance.png");
+    }
+
+    /* Divider under logo */
+    .partner-divider {
+      width: 40px;
+      height: 2px;
+      background-color: #6366f1;
+      margin: 14px 0 10px;
+      border-radius: 2px;
+      transition:
+        width 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    /* Role text */
+    .partner-role {
+      font-size: 13px;
+      font-weight: 600;
+      color: #475569;
+      text-align: center;
+      letter-spacing: 0.3px;
+    }
   </style>
 </head>
-<body>
-<!-- Navigation -->
-    <div id="navbar"></div>
 
-    <script>
-        fetch("navbar.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("navbar").innerHTML = data;
-        });
-    </script>
-  
-    <!-- Hero Section -->
+<body>
+  <!-- Navigation -->
+  <div id="navbar"></div>
+
+  <script>
+    fetch("navbar.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+      });
+  </script>
+
+  <!-- Hero Section -->
   <section class="hero-section">
     <div class="container">
       <div class="row">
@@ -261,13 +412,13 @@
             <div class="contact-info-item">
               <i class="fas fa-map-marker-alt"></i>
               <div>
-                  <h6 class="mb-1">Address</h6>
-                  <p class="address-text">
-                    3524 Silverside Road Suite 35B<br>
-                    Wilmington, DE 19810-4929<br>
-                    USA
-                  </p>
-              </div>  
+                <h6 class="mb-1">Address</h6>
+                <p class="address-text">
+                  3524 Silverside Road Suite 35B<br>
+                  Wilmington, DE 19810-4929<br>
+                  USA
+                </p>
+              </div>
             </div>
             <div class="contact-info-item">
               <i class="fas fa-phone"></i>
@@ -295,7 +446,7 @@
               <a href="#"><i class="fab fa-facebook-f"></i></a>
               <a href="#"><i class="fab fa-twitter"></i></a>
               <a href="#"><i class="fab fa-linkedin-in"></i></a>
- 
+
             </div>
           </div>
         </div>
@@ -303,77 +454,127 @@
     </div>
   </section>
 
+
   <!-- Map Section -->
   <section class="map-section">
     <div class="map-container">
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6129.9291871175865!2d-75.54452!3d39.807786!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6fb58b0c8dae9%3A0x401359cdeadd1248!2s3524%20Silverside%20Rd%20Suite%2035B%2C%20Wilmington%2C%20DE%2019810%2C%20USA!5e0!3m2!1sen!2sin!4v1756144942838!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>  </section>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6129.9291871175865!2d-75.54452!3d39.807786!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6fb58b0c8dae9%3A0x401359cdeadd1248!2s3524%20Silverside%20Rd%20Suite%2035B%2C%20Wilmington%2C%20DE%2019810%2C%20USA!5e0!3m2!1sen!2sin!4v1756144942838!5m2!1sen!2sin"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+  <section class="data-partners-section">
+    <div class="container">
+      <h2 class="section-title" style="padding-bottom: 1rem;">Our Partners</h2>
 
-    <!-- Footer -->
-     <footer class="footer">
-        <div class="container">
-            <div class="row">
-            
-            <!-- Company Info -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <h5><i class="fas fa-globe me-2"></i>World Connect Leads</h5>
-                <p>
-                At World Connect Leads, we aim to help our clients with all their contact and company data needs.
-                We collect contact data of Expo Attendees, Exhibitors, Trade Shows, Conferences, Fairs & Seminars
-                and organize them into mailing lists for your business growth.
-                </p>
-            </div>
+      <div class="data-partners-grid">
+        <!-- Campaign partner - Bounce Cure -->
+        <a href="https://www.bouncecure.com/" target="_blank" rel="noopener noreferrer" class="data-partner-card">
+          <div class="partner-content">
+            <div class="partner-logo bounce-cure"></div>
+            <span class="partner-divider"></span>
+            <p class="partner-role" style="font-size: medium;color: #004bfaf8;">Campaign Partner</p>
+          </div>
+        </a>
 
-            <!-- Links -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <h5>Our Links</h5>
-                <ul class="p-0">
-                <li><a href="/index.html"><i class="fas fa-angle-right me-2"></i>Home</a></li>
-                <li><a href="/events.html"><i class="fas fa-angle-right me-2"></i>Events</a></li>
-                <li><a href="/about.html"><i class="fas fa-angle-right me-2"></i>Who We Are</a></li>
-                <li><a href="/contact.html"><i class="fas fa-angle-right me-2"></i>Contact Us</a></li>
-                <li><a href="/FAQ.html"><i class="fas fa-angle-right me-2"></i>FAQ</a></li>
-                </ul>
-            </div>
+        <!-- Data verification partner - Verify Emails -->
+        <a href="https://www.veriemails.com/" target="_blank" rel="noopener noreferrer" class="data-partner-card">
+          <div class="partner-content">
+            <div class="partner-logo veriemails"></div>
+            <span class="partner-divider"></span>
+            <p class="partner-role" style="font-size: medium;color: #004bfaf8;">Data Verification Partner
+            </p>
+          </div>
+        </a>
 
-            <!-- Contact -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <h5>Contact Us</h5>
-                <p class="address-text">
-                  3524 Silverside Road Suite 35B<br>
-                  Wilmington, DE 19810-4929<br>
-                  USA
-                </p>
+        <!-- Data partner - Global Business Alliance -->
+        <a href="https://www.globalbusinessalliance.net" target="_blank" rel="noopener noreferrer"
+          class="data-partner-card">
+          <div class="partner-content">
+            <div class="partner-logo gba"></div>
+            <span class="partner-divider"></span>
+            <p class="partner-role" style="font-size: medium;color: #004bfaf8;">Data Partner</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
-                <!-- <p><i class="fas fa-phone me-2 text-info"></i> +1 19810-4929 </p> -->
-                <p>
-                <i class="fas fa-envelope me-2 text-info"></i> 
-                <a href="mailto:info@worldconnectleads.com" class="text-light no-link">info@worldconnectleads.com</a>
-                </p>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
 
-                <!-- Social Icons -->
-                <div class="social-icons mt-3">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            </div>
-
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-            <p>© 2025 World Connect Leads. All Rights Reserved.</p>
-            </div>
+        <!-- Company Info -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h5><i class="fas fa-globe me-2"></i>World Connect Leads</h5>
+          <p>
+            At World Connect Leads, we aim to help our clients with all their contact and company data needs.
+            We collect contact data of Expo Attendees, Exhibitors, Trade Shows, Conferences, Fairs & Seminars
+            and organize them into mailing lists for your business growth.
+          </p>
         </div>
-    </footer>
+
+        <!-- Links -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h5>Our Links</h5>
+          <ul class="p-0">
+            <li><a href="/index.html"><i class="fas fa-angle-right me-2"></i>Home</a></li>
+            <li><a href="/events.html"><i class="fas fa-angle-right me-2"></i>Events</a></li>
+            <li><a href="/whoWe.html"><i class="fas fa-angle-right me-2"></i>Who We Are</a></li>
+            <li><a href="/contact.html"><i class="fas fa-angle-right me-2"></i>Contact Us</a></li>
+            <li><a href="/FAQ.html"><i class="fas fa-angle-right me-2"></i>FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h5>Contact Us</h5>
+          <p class="address-text">
+            3524 Silverside Road Suite 35B<br>
+            Wilmington, DE 19810-4929<br>
+            USA
+          </p>
+
+          <!-- <p><i class="fas fa-phone me-2 text-info"></i> +1 19810-4929 </p> -->
+          <p>
+            <i class="fas fa-envelope me-2 text-info"></i>
+            <a href="mailto:info@worldconnectleads.com" class="text-light no-link">info@worldconnectleads.com</a>
+          </p>
+
+          <!-- Social Icons -->
+          <div class="social-icons mt-3">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>© <span id="currentYear"></span> World Connect Leads. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const yearEl = document.getElementById("currentYear");
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+    });
+  </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
       e.preventDefault();
       alert('Thank you for your message! We will get back to you soon.');
       this.reset();
     });
   </script>
 </body>
+
 </html>
