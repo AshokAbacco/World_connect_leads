@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Data Samples – World Connect Leads</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css">
+  <style>
+    :root{--primary:#2563eb;--navy:#0f1f5c;}
+    body{font-family:'Inter',sans-serif;background:#f5f7ff;padding-top:80px;}
+    .s-hero{background:linear-gradient(135deg,var(--navy) 0%,#1e3a8a 60%,var(--primary) 100%);padding:4rem 1.5rem 3rem;position:relative;overflow:hidden;}
+    .s-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.04) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.04) 40px);}
+    .s-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#fff;margin-bottom:.5rem;}
+    .s-hero p{color:rgba(255,255,255,.75);font-size:.93rem;max-width:520px;}
+    .pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:.45rem 1rem;color:#fff;font-size:.8rem;font-weight:600;backdrop-filter:blur(4px);}
+    .toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin-bottom:1.5rem;}
+    .toolbar h2{font-size:1.05rem;font-weight:700;color:#1e293b;margin:0;flex:1;display:flex;align-items:center;gap:.5rem;}
+    .sw{position:relative;flex:1;min-width:180px;max-width:280px;}
+    .sw i{position:absolute;left:.8rem;top:50%;transform:translateY(-50%);color:#94a3b8;font-size:.78rem;pointer-events:none;}
+    .sw input{width:100%;padding:.58rem .9rem .58rem 2.1rem;border:1.5px solid #e2e8f0;border-radius:10px;font-size:.84rem;background:#fff;outline:none;transition:border-color .2s;}
+    .sw input:focus{border-color:var(--primary);}
+    .btn-rf{display:flex;align-items:center;gap:.4rem;padding:.58rem 1rem;border:1.5px solid #e2e8f0;border-radius:10px;background:#fff;color:var(--primary);font-size:.82rem;font-weight:600;cursor:pointer;transition:.2s;}
+    .btn-rf:hover{background:#f0f4ff;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:.9rem;}
+    .sc{background:#fff;border-radius:14px;border:1px solid #e2e8f0;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;animation:fadeUp .3s ease both;}
+    .sc:hover{box-shadow:0 6px 24px rgba(37,99,235,.13);transform:translateY(-2px);}
+    .sbar{height:3px;}.bar-x{background:linear-gradient(90deg,#16a34a,#4ade80);}.bar-c{background:linear-gradient(90deg,#2563eb,#60a5fa);}
+    .sbody{padding:.85rem;flex:1;display:flex;flex-direction:column;}
+    .sicon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:.6rem;font-size:.75rem;}
+    .ix{background:#f0fdf4;border:1px solid #bbf7d0;color:#16a34a;}.ic{background:#eff6ff;border:1px solid #bfdbfe;color:#2563eb;}
+    .ext{font-size:.65rem;font-weight:700;padding:.15rem .45rem;border-radius:5px;text-transform:uppercase;}
+    .ex{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0;}.ec{background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;}
+    .sname{font-size:.76rem;font-weight:700;color:#1e293b;line-height:1.3;flex:1;margin-bottom:.7rem;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+    .acts{display:flex;gap:.5rem;}
+    .btn-eye{width:30px;height:28px;border-radius:8px;border:1.5px solid #bfdbfe;background:#eff6ff;color:#2563eb;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.7rem;transition:.2s;}
+    .btn-eye:hover{background:#dbeafe;}
+    .btn-dl{flex:1;height:28px;border-radius:8px;border:none;background:linear-gradient(90deg,var(--navy),var(--primary));color:#fff;font-size:.72rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.3rem;}
+    .btn-dl:hover{opacity:.88;}
+    .skeleton{background:linear-gradient(90deg,#f1f5f9 25%,#e2e8f0 50%,#f1f5f9 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:14px;height:155px;}
+    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    .empty{text-align:center;padding:5rem 1rem;color:#94a3b8;grid-column:1/-1;}
+    .empty i{font-size:2.5rem;margin-bottom:.8rem;}
+    /* Modal */
+    .ov{display:none;position:fixed;inset:0;background:rgba(10,20,60,.55);z-index:2000;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(4px);}
+    .ov.show{display:flex;}
+    .mbox{background:#fff;border-radius:20px;width:100%;max-width:470px;overflow:hidden;animation:fadeUp .22s ease;}
+    .mhead{background:linear-gradient(90deg,var(--navy),var(--primary));padding:1.1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;}
+    .mhead h5{color:#fff;margin:0;font-size:.92rem;font-weight:700;}
+    .mhead button{background:none;border:none;color:rgba(255,255,255,.7);font-size:1rem;cursor:pointer;}
+    .mhead button:hover{color:#fff;}
+    .mbody{padding:1.3rem 1.4rem;}
+    .dgrid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:1.1rem;}
+    .dcell{background:#f8faff;border-radius:10px;padding:.65rem;border:1px solid #e2e8f0;}
+    .dcell .dl{font-size:.63rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.15rem;}
+    .dcell .dv{font-size:.83rem;font-weight:600;color:#1e293b;}
+    .macts{display:flex;gap:.7rem;}
+    .btn-cm{flex:1;padding:.72rem;border-radius:12px;border:1.5px solid #e2e8f0;background:#fff;color:#64748b;font-weight:700;cursor:pointer;}
+    .btn-dm{flex:1;padding:.72rem;border-radius:12px;border:none;background:linear-gradient(90deg,var(--navy),var(--primary));color:#fff;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.4rem;}
+    /* form */
+    .flbl{font-size:.77rem;font-weight:600;color:#374151;margin-bottom:.22rem;}
+    .finp{width:100%;padding:.58rem .9rem;border:1.5px solid #e2e8f0;border-radius:10px;font-size:.84rem;outline:none;transition:border-color .2s;font-family:inherit;}
+    .finp:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(37,99,235,.1);}
+    .finp.fe{border-color:#f87171;background:#fff5f5;}
+    .et{font-size:.7rem;color:#ef4444;margin-top:.15rem;}
+    .btn-sub{width:100%;padding:.82rem;border-radius:12px;border:none;background:linear-gradient(90deg,var(--navy),var(--primary));color:#fff;font-weight:700;cursor:pointer;margin-top:.4rem;display:flex;align-items:center;justify-content:center;gap:.45rem;}
+    .sbox{text-align:center;padding:1rem 0;}
+    .sbox .siw{width:68px;height:68px;background:#f0fdf4;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto .9rem;font-size:1.9rem;color:#16a34a;}
+    /* pagination */
+    .pgwrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;padding:.9rem 1.2rem;border-top:1px solid #f1f5f9;background:#f8faff;}
+    .pgi{font-size:.77rem;color:#64748b;}
+    .pgbtns{display:flex;gap:.3rem;}
+    .pgb{min-width:34px;height:32px;border-radius:8px;border:1.5px solid #e2e8f0;background:#fff;color:#64748b;font-size:.8rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s;}
+    .pgb:hover:not(:disabled){border-color:var(--primary);color:var(--primary);}
+    .pgb.active{background:linear-gradient(135deg,var(--navy),var(--primary));color:#fff;border-color:transparent;}
+    .pgb:disabled{opacity:.35;cursor:not-allowed;}
+  </style>
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <!-- Hero -->
+  <div class="s-hero">
+    <div class="container position-relative">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-4">
+        <div>
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span style="color:rgba(255,255,255,.55);font-size:.72rem;font-weight:700;letter-spacing:.15em;">WORLD CONNECT LEADS</span>
+            <span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.4);display:inline-block"></span>
+            <span style="color:rgba(255,255,255,.45);font-size:.72rem;">Data Samples Portal</span>
+          </div>
+          <h1>Sample Data<br><span style="color:#60a5fa">Downloads</span></h1>
+          <p>Browse our B2B attendees data samples — fill a quick form to get instant access.</p>
+        </div>
+        <div class="d-flex flex-column gap-2">
+          <div class="pill"><i class="fas fa-database"></i><span id="totalCount">Loading…</span></div>
+          <div class="pill"><i class="fas fa-folder-open"></i><span>XLSX · XLS · CSV · TXT</span></div>
+          <div class="pill"><i class="fas fa-clock"></i><span>Instant Download</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <main class="container py-4">
+    <div class="toolbar">
+      <h2><i class="fas fa-database" style="color:var(--primary)"></i>Available Files <small id="fc" style="font-weight:400;color:#94a3b8;font-size:.83rem"></small></h2>
+      <div class="sw"><i class="fas fa-search"></i><input id="srch" placeholder="Search files…" oninput="filterSamples()"></div>
+      <button class="btn-rf" onclick="loadSamples()"><i class="fas fa-sync-alt" id="ri"></i> Refresh</button>
+    </div>
+    <div style="background:#fff;border-radius:16px;border:1px solid #e2e8f0;box-shadow:0 2px 12px rgba(37,99,235,.06);min-height:400px;">
+      <div class="p-3">
+        <div class="grid" id="grid">
+          <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
+          <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
+        </div>
+      </div>
+      <div id="pgwrap" class="pgwrap" style="display:none"></div>
+    </div>
+  </main>
+
+  <!-- Details Modal -->
+  <div class="ov" id="detMod">
+    <div class="mbox">
+      <div class="mhead"><h5 id="detTitle"><i class="fas fa-file-alt me-2"></i>File Details</h5><button onclick="closeMod('detMod')"><i class="fas fa-times"></i></button></div>
+      <div class="mbody">
+        <div id="detBadges" class="d-flex flex-wrap gap-1 mb-3"></div>
+        <div class="dgrid" id="detGrid"></div>
+        <div class="macts">
+          <button class="btn-cm" onclick="closeMod('detMod')">Close</button>
+          <button class="btn-dm" id="detDlBtn"><i class="fas fa-download"></i> Download</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Download Modal -->
+  <div class="ov" id="dlMod">
+    <div class="mbox">
+      <div class="mhead"><h5><i class="fas fa-download me-2"></i>Request Download</h5><button onclick="closeMod('dlMod')"><i class="fas fa-times"></i></button></div>
+      <div class="mbody" id="dlBody"></div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { getAllSamples, requestDownload } from './JS/api.js';
+    const PAGE=15;
+    let all=[],filtered=[],page=1,active=null;
+    const fmt=b=>!b?'—':b<1024?b+' B':b<1048576?(b/1024).toFixed(1)+' KB':(b/1048576).toFixed(1)+' MB';
+    const ext=n=>(n?.split('.').pop()||'').toUpperCase();
+    const isCSV=n=>/\.(csv|txt)$/i.test(n);
+
+    window.loadSamples=async()=>{
+      document.getElementById('ri').classList.add('fa-spin');
+      try{const r=await getAllSamples();all=r.success?r.data:[];document.getElementById('totalCount').textContent=all.length+' files';filterSamples();}
+      catch{renderEmpty('Failed to load samples');}
+      finally{document.getElementById('ri').classList.remove('fa-spin');}
+    };
+    window.filterSamples=()=>{
+      const q=document.getElementById('srch').value.toLowerCase();
+      filtered=all.filter(s=>s.originalName?.toLowerCase().includes(q));
+      page=1;renderPage();
+    };
+    function renderPage(){
+      const tot=filtered.length,pages=Math.ceil(tot/PAGE),start=(page-1)*PAGE,slice=filtered.slice(start,start+PAGE);
+      document.getElementById('fc').textContent='('+tot+' files)';
+      if(!tot){renderEmpty(document.getElementById('srch').value?'No results found':'No samples available yet');return;}
+      document.getElementById('grid').innerHTML=slice.map((s,i)=>{
+        const c=isCSV(s.originalName),e=ext(s.originalName),n=s.originalName?.replace(/\.[^/.]+$/,'')||'';
+        return `<div class="sc" style="animation-delay:${i*.04}s">
+          <div class="sbar ${c?'bar-c':'bar-x'}"></div>
+          <div class="sbody">
+            <div class="d-flex align-items-start justify-content-between mb-2">
+              <div class="sicon ${c?'ic':'ix'}"><i class="fas ${c?'fa-file-csv':'fa-file-excel'}"></i></div>
+              <span class="ext ${c?'ec':'ex'}">${e}</span>
+            </div>
+            <p class="sname" title="${s.originalName}">${n}</p>
+            <div class="acts">
+              <button class="btn-eye" onclick="openDet(${s.id})" title="Details"><i class="fas fa-eye"></i></button>
+              <button class="btn-dl" onclick="openDl(${s.id})"><i class="fas fa-download"></i> Download</button>
+            </div>
+          </div></div>`;
+      }).join('');
+      renderPg(tot,pages);
+    }
+    function renderEmpty(m){document.getElementById('grid').innerHTML=`<div class="empty"><i class="fas fa-folder-open"></i><p>${m}</p></div>`;document.getElementById('pgwrap').style.display='none';}
+    function renderPg(tot,pages){
+      const w=document.getElementById('pgwrap');
+      if(pages<=1){w.style.display='none';return;}
+      const s=(page-1)*PAGE+1,e=Math.min(page*PAGE,tot);
+      w.style.display='flex';
+      w.innerHTML=`<span class="pgi">Showing <b>${s}–${e}</b> of <b>${tot}</b></span>
+        <div class="pgbtns">
+          <button class="pgb" onclick="goPage(${page-1})" ${page===1?'disabled':''}>‹ Prev</button>
+          ${Array.from({length:pages},(_,i)=>`<button class="pgb ${i+1===page?'active':''}" onclick="goPage(${i+1})">${i+1}</button>`).join('')}
+          <button class="pgb" onclick="goPage(${page+1})" ${page===pages?'disabled':''}>Next ›</button>
+        </div>`;
+    }
+    window.goPage=p=>{page=p;renderPage();window.scrollTo({top:0,behavior:'smooth'});};
+
+    window.openDet=id=>{
+      active=all.find(s=>s.id===id);if(!active)return;const s=active;
+      document.getElementById('detTitle').innerHTML=`<i class="fas fa-file-alt me-2"></i>${s.originalName}`;
+      const c=isCSV(s.originalName);
+      document.getElementById('detBadges').innerHTML=[
+        `<span style="padding:.2rem .6rem;border-radius:20px;font-size:.7rem;font-weight:700;background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe">${s.rowCount?.toLocaleString()} rows</span>`,
+        `<span style="padding:.2rem .6rem;border-radius:20px;font-size:.7rem;font-weight:700;background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe">${s.colCount} columns</span>`,
+        `<span style="padding:.2rem .6rem;border-radius:20px;font-size:.7rem;font-weight:700;background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe">${fmt(s.fileSize)}</span>`,
+        `<span style="padding:.2rem .6rem;border-radius:20px;font-size:.7rem;font-weight:700;background:${c?'#eff6ff':'#f0fdf4'};color:${c?'#2563eb':'#16a34a'};border:1px solid ${c?'#bfdbfe':'#bbf7d0'}">${ext(s.originalName)}</span>`,
+      ].join('');
+      document.getElementById('detGrid').innerHTML=[
+        ['File Name',s.originalName,'fa-file'],['File Size',fmt(s.fileSize),'fa-hdd'],
+        ['Total Rows',s.rowCount?.toLocaleString(),'fa-hashtag'],['Columns',s.colCount,'fa-columns'],
+        ['Format',ext(s.originalName),'fa-info-circle'],['Uploaded',new Date(s.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}),'fa-calendar'],
+      ].map(([l,v,ic])=>`<div class="dcell"><div class="dl"><i class="fas ${ic} me-1"></i>${l}</div><div class="dv">${v}</div></div>`).join('');
+      document.getElementById('detDlBtn').onclick=()=>{closeMod('detMod');openDl(id);};
+      openMod('detMod');
+    };
+
+    window.openDl=id=>{active=all.find(s=>s.id===id);renderDlForm();openMod('dlMod');};
+    function renderDlForm(){
+      document.getElementById('dlBody').innerHTML=`
+        <p style="font-size:.79rem;color:#64748b;background:#f0f4ff;border:1px solid #bfdbfe;border-radius:10px;padding:.65rem 1rem;margin-bottom:1rem;">
+          📋 Fill in your details to receive the download link by email.</p>
+        <div class="mb-3"><div class="flbl">Full Name *</div><input id="dn" class="finp" placeholder="John Smith"><div class="et" id="en"></div></div>
+        <div class="mb-3"><div class="flbl">Email Address *</div><input id="de" type="email" class="finp" placeholder="john@company.com"><div class="et" id="ee"></div></div>
+        <div class="mb-3"><div class="flbl">Company Name *</div><input id="dc" class="finp" placeholder="Acme Corp"><div class="et" id="ec2"></div></div>
+        <div class="mb-3"><div class="flbl">Address *</div><textarea id="da" class="finp" rows="2" placeholder="123 Main St, City, Country"></textarea><div class="et" id="ea"></div></div>
+        <div id="derr" style="display:none;font-size:.79rem;color:#dc2626;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:.6rem 1rem;margin-bottom:.4rem"></div>
+        <button class="btn-sub" id="dsub" onclick="submitDl()"><i class="fas fa-envelope"></i> Send Download Link</button>
+        <p style="text-align:center;font-size:.7rem;color:#94a3b8;margin-top:.6rem">Your info is kept confidential.</p>`;
+    }
+    window.submitDl=async()=>{
+      const n=document.getElementById('dn').value.trim(),e=document.getElementById('de').value.trim();
+      const c=document.getElementById('dc').value.trim(),a=document.getElementById('da').value.trim();
+      let ok=true;
+      ['en','ee','ec2','ea'].forEach(id=>document.getElementById(id).textContent='');
+      ['dn','de','dc','da'].forEach(id=>document.getElementById(id).classList.remove('fe'));
+      if(!n){document.getElementById('en').textContent='Required';document.getElementById('dn').classList.add('fe');ok=false;}
+      if(!e||!/\S+@\S+\.\S+/.test(e)){document.getElementById('ee').textContent='Valid email required';document.getElementById('de').classList.add('fe');ok=false;}
+      if(!c){document.getElementById('ec2').textContent='Required';document.getElementById('dc').classList.add('fe');ok=false;}
+      if(!a){document.getElementById('ea').textContent='Required';document.getElementById('da').classList.add('fe');ok=false;}
+      if(!ok)return;
+      const btn=document.getElementById('dsub');btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Sending…';
+      try{
+        const r=await requestDownload({sampleId:active.id,sampleName:active.originalName,name:n,email:e,companyName:c,address:a});
+        if(r.success){
+          document.getElementById('dlBody').innerHTML=`<div class="sbox">
+            <div class="siw"><i class="fas fa-check"></i></div>
+            <h5 style="font-weight:800;color:#1e293b">Check Your Email!</h5>
+            <p style="font-size:.83rem;color:#64748b">Download link sent to:</p>
+            <div style="background:#f0f4ff;border:1px solid #bfdbfe;border-radius:10px;padding:.65rem 1rem;margin:.7rem 0;font-weight:700;color:var(--primary)">${e}</div>
+            <p style="font-size:.72rem;color:#94a3b8">Check inbox & spam. Link valid for 1 hour.</p>
+            <button class="btn-dm mt-2" onclick="closeMod('dlMod')" style="width:100%;justify-content:center">Got it, Close</button>
+          </div>`;
+        }else{
+          document.getElementById('derr').style.display='block';document.getElementById('derr').textContent=r.message||'Something went wrong.';
+          btn.disabled=false;btn.innerHTML='<i class="fas fa-envelope"></i> Send Download Link';
+        }
+      }catch{document.getElementById('derr').style.display='block';document.getElementById('derr').textContent='Network error.';btn.disabled=false;btn.innerHTML='<i class="fas fa-envelope"></i> Send Download Link';}
+    };
+    function openMod(id){document.getElementById(id).classList.add('show');}
+    window.closeMod=id=>document.getElementById(id).classList.remove('show');
+    document.querySelectorAll('.ov').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('show');}));
+    fetch('navbar.html').then(r=>r.text()).then(h=>{document.getElementById('navbar').innerHTML=h;});
+    loadSamples();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body></html>

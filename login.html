@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Login / Register – World Connect Leads</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--primary:#2563eb;--navy:#0f1f5c;}*{box-sizing:border-box;}
+    body{font-family:'Inter',sans-serif;background:#f0f4ff;min-height:100vh;display:flex;flex-direction:column;}
+    .top-bar{background:#fff;box-shadow:0 1px 10px rgba(0,0,0,.08);padding:.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
+    .brand{font-weight:700;font-size:1.2rem;color:var(--primary);text-decoration:none;}
+    .back{font-size:.85rem;color:var(--primary);text-decoration:none;}
+    .wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:2rem 1rem;}
+    .card{background:#fff;border-radius:20px;box-shadow:0 8px 40px rgba(37,99,235,.13);width:100%;max-width:460px;overflow:hidden;}
+    .tabs{display:flex;}.tab{flex:1;padding:1.1rem;text-align:center;font-weight:600;font-size:.9rem;cursor:pointer;border:none;background:#f8faff;color:#64748b;transition:.2s;border-bottom:2px solid #e2e8f0;}
+    .tab.active{background:#fff;color:var(--primary);border-bottom:3px solid var(--primary);}
+    .hero{background:linear-gradient(135deg,var(--navy),var(--primary));padding:1.4rem 1.8rem;color:#fff;}
+    .hero h2{font-size:1.2rem;font-weight:700;margin:0 0 .2rem;}.hero p{font-size:.8rem;opacity:.8;margin:0;}
+    .bd{padding:1.6rem 1.8rem;}
+    .lbl{font-size:.77rem;font-weight:600;color:#374151;margin-bottom:.25rem;}
+    .inp{width:100%;border:1.5px solid #e2e8f0;border-radius:10px;padding:.6rem 1rem .6rem 2.3rem;font-size:.87rem;outline:none;transition:border-color .2s;font-family:inherit;}
+    .inp:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(37,99,235,.1);}
+    .iw{position:relative;}.iw i{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:#94a3b8;font-size:.8rem;pointer-events:none;}
+    .btn-go{width:100%;padding:.8rem;border-radius:12px;border:none;background:linear-gradient(90deg,var(--navy),var(--primary));color:#fff;font-weight:700;font-size:.92rem;cursor:pointer;margin-top:.5rem;transition:opacity .2s;}
+    .btn-go:hover{opacity:.9;}.btn-go:disabled{opacity:.6;cursor:not-allowed;}
+    .msg{font-size:.8rem;padding:.65rem 1rem;border-radius:10px;margin-top:.7rem;display:none;}
+    .msg.err{background:#fef2f2;border:1px solid #fecaca;color:#dc2626;display:block;}
+    .msg.ok{background:#f0fdf4;border:1px solid #bbf7d0;color:#16a34a;display:block;}
+    .row2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;}
+    .sw{text-align:center;font-size:.78rem;color:#94a3b8;margin-top:.9rem;}.sw a{color:var(--primary);font-weight:600;text-decoration:none;}
+    @media(max-width:420px){.row2{grid-template-columns:1fr}.bd{padding:1.2rem}}
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a class="brand" href="index.html"><i class="fas fa-globe me-2"></i>World Connect Leads</a>
+    <a class="back" href="index.html"><i class="fas fa-arrow-left me-1"></i>Back to Home</a>
+  </div>
+  
+  <div class="wrap"><div class="card">
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('login')">Login</button>
+      <button class="tab" onclick="showTab('register')">Register</button>
+    </div>
+    <!-- LOGIN -->
+    <div id="loginPanel">
+      <div class="hero"><h2><i class="fas fa-sign-in-alt me-2"></i>Welcome Back</h2><p>Sign in to access your member area</p></div>
+      <div class="bd">
+        <div class="mb-3"><div class="lbl">Email</div><div class="iw"><i class="fas fa-envelope"></i><input id="lEmail" class="inp" type="email" placeholder="you@example.com"></div></div>
+        <div class="mb-2"><div class="lbl">Password</div><div class="iw"><i class="fas fa-lock"></i><input id="lPass" class="inp" type="password" placeholder="••••••••"></div></div>
+        <div id="lMsg" class="msg"></div>
+        <button class="btn-go" id="lBtn" onclick="doLogin()"><i class="fas fa-sign-in-alt me-2"></i>Sign In</button>
+        <div class="sw">No account? <a href="#" onclick="showTab('register')">Register here</a></div>
+      </div>
+    </div>
+    <!-- REGISTER -->
+    <div id="registerPanel" style="display:none">
+      <div class="hero"><h2><i class="fas fa-user-plus me-2"></i>Create Account</h2><p>Join World Connect Leads today</p></div>
+      <div class="bd">
+        <div class="row2 mb-3">
+          <div><div class="lbl">First Name</div><div class="iw"><i class="fas fa-user"></i><input id="rFirst" class="inp" placeholder="John"></div></div>
+          <div><div class="lbl">Last Name</div><div class="iw"><i class="fas fa-user"></i><input id="rLast" class="inp" placeholder="Smith"></div></div>
+        </div>
+        <div class="mb-3"><div class="lbl">Email</div><div class="iw"><i class="fas fa-envelope"></i><input id="rEmail" class="inp" type="email" placeholder="you@example.com"></div></div>
+        <div class="mb-3"><div class="lbl">Password</div><div class="iw"><i class="fas fa-lock"></i><input id="rPass" class="inp" type="password" placeholder="Min. 6 characters"></div></div>
+        <div class="mb-2"><div class="lbl">Referral Code <span style="color:#94a3b8;font-weight:400">(optional)</span></div><div class="iw"><i class="fas fa-tag"></i><input id="rRef" class="inp" placeholder="e.g. WCL-AB-123"></div></div>
+        <div id="rMsg" class="msg"></div>
+        <button class="btn-go" id="rBtn" onclick="doRegister()"><i class="fas fa-user-plus me-2"></i>Create Account</button>
+        <div class="sw">Have an account? <a href="#" onclick="showTab('login')">Login here</a></div>
+      </div>
+    </div>
+  </div></div>
+
+  <script type="module">
+    import { loginUser, registerUser, saveAuth, isLoggedIn } from './JS/api.js';
+    if(isLoggedIn()) window.location.href='/dashboard.html';
+    window.showTab=t=>{
+      document.getElementById('loginPanel').style.display=t==='login'?'':'none';
+      document.getElementById('registerPanel').style.display=t==='register'?'':'none';
+      document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('active',i===(t==='login'?0:1)));
+    };
+    window.doLogin=async()=>{
+      const email=document.getElementById('lEmail').value.trim(),pass=document.getElementById('lPass').value;
+      const msg=document.getElementById('lMsg'),btn=document.getElementById('lBtn');
+      msg.className='msg';
+      if(!email||!pass){msg.className='msg err';msg.textContent='Fill in all fields.';return;}
+      btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin me-2"></i>Signing in…';
+      try{const r=await loginUser({email,password:pass});if(r.token){saveAuth(r.token,r.user);window.location.href='/dashboard.html';}else{msg.className='msg err';msg.textContent=r.message||'Invalid credentials.';}}
+      catch{msg.className='msg err';msg.textContent='Network error.';}
+      finally{btn.disabled=false;btn.innerHTML='<i class="fas fa-sign-in-alt me-2"></i>Sign In';}
+    };
+    window.doRegister=async()=>{
+      const fn=document.getElementById('rFirst').value.trim(),ln=document.getElementById('rLast').value.trim();
+      const email=document.getElementById('rEmail').value.trim(),pass=document.getElementById('rPass').value;
+      const ref=document.getElementById('rRef').value.trim();
+      const msg=document.getElementById('rMsg'),btn=document.getElementById('rBtn');
+      msg.className='msg';
+      if(!fn||!ln||!email||!pass){msg.className='msg err';msg.textContent='Fill in all required fields.';return;}
+      if(pass.length<6){msg.className='msg err';msg.textContent='Password min. 6 characters.';return;}
+      btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin me-2"></i>Creating…';
+      try{const r=await registerUser({firstName:fn,lastName:ln,email,password:pass,...(ref&&{usedReferralCode:ref})});
+        if(r.token||r.success||r.message==='User registered successfully'){
+          msg.className='msg ok';
+          msg.textContent='✓ Registration successful! Redirecting to login…';
+          btn.disabled=true;
+          setTimeout(()=>{
+            showTab('login');
+            const lMsg=document.getElementById('lMsg');
+            lMsg.className='msg ok';
+            lMsg.textContent='✓ Account created! Please sign in.';
+          },1500);
+        }else{msg.className='msg err';msg.textContent=r.message||'Registration failed.';}}
+      catch{msg.className='msg err';msg.textContent='Network error.';}
+      finally{if(!document.getElementById('rMsg').classList.contains('ok')){btn.disabled=false;}btn.innerHTML='<i class="fas fa-user-plus me-2"></i>Create Account';}
+    };
+    document.addEventListener('keydown',e=>{if(e.key!=='Enter')return;document.getElementById('registerPanel').style.display==='none'?doLogin():doRegister();});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body></html>

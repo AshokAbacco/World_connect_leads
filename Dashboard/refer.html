@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Refer &amp; Earn – World Connect Leads</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+:root{--primary:#2563eb;--navy:#0f1f5c;--sidebar-w:240px;--topbar-h:64px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:#f4f6fb;color:#1e293b;}
+/* SIDEBAR */
+.sidebar{position:fixed;top:0;left:0;height:100vh;width:var(--sidebar-w);background:var(--navy);display:flex;flex-direction:column;z-index:100;transition:transform .3s;}
+.sb-brand{display:flex;align-items:center;gap:.65rem;padding:1.1rem 1rem;border-bottom:1px solid rgba(255,255,255,.08);}
+.sb-logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#3b82f6,#1d4ed8);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#fff;flex-shrink:0;}
+.sb-brand-text .t1{font-size:.77rem;font-weight:800;color:#fff;line-height:1.2;}
+.sb-brand-text .t2{font-size:.63rem;color:rgba(255,255,255,.45);}
+.sb-user{display:flex;align-items:center;gap:.65rem;padding:.8rem 1rem;border-bottom:1px solid rgba(255,255,255,.08);}
+.sb-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#60a5fa);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;color:#fff;flex-shrink:0;}
+.sb-user-info .un{font-size:.8rem;font-weight:700;color:#fff;}
+.sb-user-info .ur{display:inline-block;font-size:.6rem;font-weight:700;background:rgba(96,165,250,.25);color:#93c5fd;border-radius:20px;padding:.07rem .45rem;margin-top:.1rem;}
+.sb-sec{font-size:.57rem;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.12em;padding:.85rem 1rem .28rem;}
+.sl{display:flex;align-items:center;gap:.62rem;padding:.58rem 1rem;margin:.08rem .55rem;border-radius:9px;color:rgba(255,255,255,.55);font-size:.81rem;font-weight:500;text-decoration:none;transition:.15s;cursor:pointer;border:none;background:none;width:calc(100% - 1.1rem);text-align:left;}
+.sl i{width:16px;text-align:center;font-size:.8rem;flex-shrink:0;}
+.sl:hover{background:rgba(255,255,255,.08);color:#fff;}
+.sl.active{background:linear-gradient(90deg,rgba(59,130,246,.35),rgba(59,130,246,.12));color:#fff;font-weight:700;border-left:3px solid #60a5fa;padding-left:calc(1rem - 3px);}
+.sl .arr{margin-left:auto;font-size:.6rem;opacity:.45;}
+.sl.active .arr{opacity:1;}
+.sb-bottom{margin-top:auto;padding:.7rem .55rem;border-top:1px solid rgba(255,255,255,.08);}
+.sb-logout{display:flex;align-items:center;gap:.62rem;padding:.58rem 1rem;border-radius:9px;color:rgba(255,255,255,.45);font-size:.81rem;cursor:pointer;transition:.15s;border:none;background:none;width:100%;}
+.sb-logout:hover{background:rgba(239,68,68,.15);color:#fca5a5;}
+/* MODAL OVERLAY */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(15,23,42,.45);backdrop-filter:blur(5px);align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.show{display:flex;}
+@keyframes su{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
+/* LOGOUT MODAL */
+.logout-modal-box{background:#fff;border-radius:18px;width:100%;max-width:360px;padding:1.8rem 1.6rem;box-shadow:0 20px 56px rgba(0,0,0,.15);animation:su .2s ease;text-align:center;}
+.logout-icon-wrap{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#fef2f2,#fee2e2);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.4rem;color:#dc2626;border:1.5px solid #fecaca;}
+.logout-title{font-size:1.05rem;font-weight:800;color:#0f172a;margin-bottom:.4rem;}
+.logout-sub{color:#64748b;font-size:.82rem;line-height:1.6;margin-bottom:1.4rem;}
+.logout-btns{display:flex;gap:.65rem;}
+.btn-logout-cancel{flex:1;padding:.65rem;border-radius:10px;border:1.5px solid #e2e8f0;background:#f8fafc;color:#475569;font-weight:700;font-size:.82rem;cursor:pointer;font-family:'Inter',sans-serif;transition:.15s;}
+.btn-logout-cancel:hover{background:#e2e8f0;}
+.btn-logout-confirm{flex:1;padding:.65rem;border-radius:10px;border:none;background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;font-weight:700;font-size:.82rem;cursor:pointer;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;gap:.4rem;transition:.15s;box-shadow:0 4px 12px rgba(220,38,38,.3);}
+.btn-logout-confirm:hover{background:linear-gradient(135deg,#dc2626,#b91c1c);box-shadow:0 6px 16px rgba(220,38,38,.4);}
+/* TOPBAR */
+.topbar{position:fixed;top:0;left:var(--sidebar-w);right:0;height:var(--topbar-h);background:#fff;border-bottom:1px solid #e8ecf4;display:flex;align-items:center;justify-content:space-between;padding:0 1.6rem;z-index:99;gap:1rem;}
+.tb-left .badge-pill{display:inline-flex;align-items:center;gap:.35rem;font-size:.67rem;font-weight:700;color:var(--primary);background:#eff6ff;border:1px solid #bfdbfe;border-radius:20px;padding:.16rem .6rem;margin-bottom:.2rem;}
+.tb-left .page-title{font-size:1.2rem;font-weight:900;color:#1e293b;}
+.btn-rf{display:flex;align-items:center;gap:.4rem;padding:.48rem .95rem;border-radius:10px;border:1.5px solid #e2e8f0;background:#fff;color:#64748b;font-size:.79rem;font-weight:600;cursor:pointer;transition:.2s;}
+.btn-rf:hover{background:#f0f4ff;color:var(--primary);}
+/* MAIN */
+.main{margin-left:var(--sidebar-w);padding-top:var(--topbar-h);min-height:100vh;}
+.page{padding:1.5rem 1.6rem;}
+/* HERO BANNER */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#1e3a8a 55%,var(--primary) 100%);border-radius:18px;padding:2rem 2rem 1.8rem;margin-bottom:1.4rem;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#60a5fa,transparent 70%);opacity:.22;}
+.hero::after{content:'';position:absolute;bottom:-30px;left:-30px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,#fbbf24,transparent 70%);opacity:.14;}
+.hero-inner{position:relative;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.2rem;}
+.hero-label{font-size:.65rem;font-weight:800;color:#fde68a;text-transform:uppercase;letter-spacing:.18em;margin-bottom:.45rem;}
+.hero h1{font-size:1.9rem;font-weight:900;color:#fff;line-height:1.15;margin:0 0 .55rem;}
+.hero h1 span{color:#fbbf24;}
+.hero p{font-size:.82rem;color:#bfdbfe;max-width:380px;line-height:1.6;}
+.hero p strong{color:#fde68a;}
+.coin-panel-hero{background:rgba(255,255,255,.12);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:1.2rem 1.4rem;min-width:200px;text-align:center;}
+.coin-panel-hero .cp-lbl{font-size:.65rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.3rem;}
+.coin-panel-hero .cp-val{font-size:2.6rem;font-weight:900;color:#fff;line-height:1;}
+.coin-panel-hero .cp-usd{font-size:.75rem;font-weight:700;color:#fbbf24;margin-top:.3rem;}
+.coin-panel-hero .cp-tags{display:flex;gap:.4rem;justify-content:center;margin-top:.7rem;flex-wrap:wrap;}
+.coin-tag{font-size:.67rem;font-weight:700;background:rgba(255,255,255,.15);color:#fff;padding:.2rem .55rem;border-radius:20px;}
+/* STAT CARDS */
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.4rem;}
+.stat-card{background:#fff;border-radius:14px;padding:1.1rem 1.2rem;border:1px solid #e8ecf4;display:flex;align-items:center;gap:1rem;}
+.stat-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.stat-lbl{font-size:.65rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.18rem;}
+.stat-val{font-size:1.55rem;font-weight:900;color:#1e293b;line-height:1.1;}
+.stat-sub{font-size:.68rem;color:#94a3b8;margin-top:.15rem;}
+/* SECTION CARDS */
+.sec{background:#fff;border-radius:14px;border:1px solid #e8ecf4;overflow:hidden;margin-bottom:1.2rem;}
+.sec-head{display:flex;align-items:center;gap:.7rem;padding:.85rem 1.3rem;border-bottom:1px solid #f1f5f9;background:linear-gradient(90deg,#f0f4ff,#fff);}
+.sec-head-icon{width:34px;height:34px;border-radius:9px;background:#eff6ff;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:var(--primary);flex-shrink:0;}
+.sec-head-text .sh-title{font-size:.86rem;font-weight:800;color:#1e293b;}
+.sec-head-text .sh-sub{font-size:.7rem;color:#94a3b8;margin-top:.08rem;}
+.sec-body{padding:1rem 1.3rem;}
+/* REFERRAL CODE BLOCK */
+.code-block{display:flex;align-items:center;gap:.85rem;padding:1rem 1.1rem;border-radius:14px;border:2px solid #fcd34d;background:linear-gradient(135deg,#fffbeb,#fef3c7);margin-bottom:.85rem;}
+.code-icon{width:40px;height:40px;border-radius:10px;background:rgba(245,158,11,.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#d97706;flex-shrink:0;}
+.code-lbl{font-size:.62rem;font-weight:800;color:#92400e;text-transform:uppercase;letter-spacing:.14em;}
+.code-val{font-size:1.45rem;font-weight:900;color:#78350f;letter-spacing:.12em;}
+.btn-copy-code{display:inline-flex;align-items:center;gap:.35rem;padding:.38rem .75rem;border-radius:9px;border:1.5px solid #fcd34d;background:#fffbeb;color:#92400e;font-size:.76rem;font-weight:700;cursor:pointer;transition:.2s;white-space:nowrap;font-family:'Inter',sans-serif;flex-shrink:0;}
+.btn-copy-code:hover,.btn-copy-code.copied{background:#dcfce7;color:#16a34a;border-color:#86efac;}
+/* LINK ROW */
+.link-row{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;}
+.link-display{flex:1;min-width:180px;display:flex;align-items:center;gap:.6rem;padding:.6rem .9rem;border-radius:10px;border:1.5px solid #bfdbfe;background:#f8faff;font-size:.8rem;color:#475569;font-family:monospace;overflow:hidden;}
+.link-display i{color:#93c5fd;flex-shrink:0;}
+.link-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.btn-copy-link{display:inline-flex;align-items:center;gap:.35rem;padding:.55rem .9rem;border-radius:10px;border:1.5px solid #bfdbfe;background:#eff6ff;color:var(--primary);font-size:.79rem;font-weight:700;cursor:pointer;transition:.2s;font-family:'Inter',sans-serif;white-space:nowrap;}
+.btn-copy-link:hover,.btn-copy-link.copied{background:#dcfce7;color:#16a34a;border-color:#86efac;}
+.btn-share{display:inline-flex;align-items:center;gap:.35rem;padding:.55rem .9rem;border-radius:10px;border:none;background:linear-gradient(90deg,var(--navy),var(--primary));color:#fff;font-size:.79rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:.2s;}
+.btn-share:hover{opacity:.9;}
+/* COIN VALUE GRID */
+.coin-grid{display:grid;grid-template-columns:1fr 1fr;}
+.coin-cell{padding:1.2rem;text-align:center;}
+.coin-cell:first-child{border-right:1px solid #f1f5f9;}
+.coin-cell:last-child{background:#f0fdf4;}
+.coin-big{font-size:1.75rem;font-weight:900;color:#1e293b;margin-bottom:.2rem;}
+.coin-big.green{color:#16a34a;}
+/* HOW IT WORKS */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.how-item{display:flex;gap:.85rem;}
+.how-num{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--navy),var(--primary));color:#fff;font-size:.75rem;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.how-title{font-size:.84rem;font-weight:700;color:#1e293b;margin-bottom:.25rem;}
+.how-desc{font-size:.76rem;color:#94a3b8;line-height:1.55;}
+/* REFERRED USERS TABLE */
+.ref-table-head{display:grid;grid-template-columns:1fr auto auto;align-items:center;padding:.55rem 1.1rem;background:#f8fafc;border-bottom:1px solid #e2e8f0;}
+.ref-table-head span{font-size:.63rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.07em;}
+.ref-row{display:grid;grid-template-columns:1fr auto auto;align-items:center;padding:.8rem 1.1rem;border-bottom:1px solid #f8fafc;transition:.12s;}
+.ref-row:last-child{border:none;}
+.ref-row:hover{background:#f8faff;}
+.ref-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--primary));color:#fff;font-size:.8rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ref-name{font-size:.83rem;font-weight:700;color:#0f172a;}
+.ref-email{font-size:.71rem;color:#94a3b8;}
+.coin-badge{display:inline-flex;align-items:center;gap:.25rem;font-size:.72rem;font-weight:800;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;border:1px solid #fcd34d;border-radius:20px;padding:.18rem .55rem;}
+.status-badge{font-size:.63rem;font-weight:700;padding:.2rem .55rem;border-radius:20px;text-transform:uppercase;letter-spacing:.06em;}
+.s-active{background:#dcfce7;color:#16a34a;}
+.s-pending{background:#fef9c3;color:#854d0e;}
+/* EMPTY STATE */
+.empty-ref{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3.5rem 1rem;text-align:center;gap:.75rem;}
+/* TOAST */
+.toast{position:fixed;top:1.2rem;right:1.4rem;z-index:500;display:flex;align-items:center;gap:.75rem;background:#16a34a;color:#fff;padding:.75rem 1.1rem;border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.18);font-size:.82rem;font-weight:700;animation:fadeUp .3s ease;display:none;}
+.toast.show{display:flex;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+/* MOBILE */
+.sb-toggle{display:none;}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:99;}
+.overlay.show{display:block;}
+@media(max-width:900px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main{margin-left:0}.topbar{left:0}.sb-toggle{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:9px;border:1.5px solid #e2e8f0;background:#fff;cursor:pointer;font-size:.9rem;color:#64748b;}}
+@media(max-width:1100px){.stat-grid{grid-template-columns:repeat(3,1fr)}.how-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.page{padding:1rem}.stat-grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:1.4rem}.coin-panel-hero{min-width:unset;width:100%}.how-grid{grid-template-columns:1fr}.coin-grid{grid-template-columns:1fr}.coin-cell:first-child{border-right:none;border-bottom:1px solid #f1f5f9}}
+  </style>
+</head>
+<body>
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <div class="sb-logo"><i class="fas fa-globe"></i></div>
+    <div class="sb-brand-text"><div class="t1">World Connect</div><div class="t2">Leads Platform</div></div>
+  </div>
+  <div class="sb-user">
+    <div class="sb-av" id="sbAv"></div>
+    <div class="sb-user-info"><div class="un" id="sbName"></div><div class="ur" id="sbRole"></div></div>
+  </div>
+  <div class="sb-sec">Main Menu</div>
+  <a class="sl" href="/dashboard.html"><i class="fas fa-th-large"></i>Dashboard</a>
+  <a class="sl" href="./myProfile.html"><i class="fas fa-folder"></i>My Projects</a>
+  <div class="sb-sec">Earn</div>
+  <a class="sl active" href="./refer.html"><i class="fas fa-gift"></i>Refer &amp; Earn<i class="fas fa-chevron-right arr"></i></a>
+  <div class="sb-bottom">
+    <button class="sb-logout" onclick="logout()"><i class="fas fa-sign-out-alt"></i>Sign Out</button>
+  </div>
+</aside>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div style="display:flex;align-items:center;gap:.8rem">
+    <button class="sb-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+    <div class="tb-left">
+      <div class="badge-pill"><i class="fas fa-circle" style="font-size:.4rem"></i>EARN REWARDS</div>
+      <div class="page-title">Refer &amp; Earn</div>
+    </div>
+  </div>
+  <button class="btn-rf" onclick="loadReferral()"><i class="fas fa-sync-alt" id="ri"></i> Refresh</button>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg">Copied!</span></div>
+
+<!-- MAIN -->
+<div class="main"><div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-label"><i class="fas fa-star" style="margin-right:.3rem"></i>Referral Rewards</div>
+        <h1>Refer &amp; Earn<br><span>Coins</span></h1>
+        <p>Share your unique referral code. Every friend who joins earns you <strong><i class="fas fa-coins" style="color:#fbbf24"></i> <span id="heroCoinsPerRef">200</span> coins</strong> worth <strong>$<span id="heroDollarPerRef">50.00</span></strong>.</p>
+      </div>
+      <div class="coin-panel-hero">
+        <div class="cp-lbl">Your Coin Balance</div>
+        <div class="cp-val" id="heroCoins">—</div>
+        <div class="cp-usd">≈ $<span id="heroUSD">0.00</span> USD</div>
+        <div class="cp-tags">
+          <span class="coin-tag" id="heroReferrals">0 referrals</span>
+          <span class="coin-tag" id="heroEarned"><i class="fas fa-coins"></i> 0 earned</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAT CARDS -->
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#edfff2;color:#02c433"><i class="fas fa-coins"></i></div>
+      <div>
+        <div class="stat-lbl">Current Balance</div>
+        <div class="stat-val" id="stCoins">—</div>
+        <div class="stat-sub">available coins</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#eff6ff;color:#2563eb"><i class="fas fa-users"></i></div>
+      <div>
+        <div class="stat-lbl">Total Referred</div>
+        <div class="stat-val" id="stReferred">—</div>
+        <div class="stat-sub">people joined</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#f0fdf4;color:#16a34a"><i class="fas fa-dollar-sign"></i></div>
+      <div>
+        <div class="stat-lbl">USD Value</div>
+        <div class="stat-val" id="stUSD">—</div>
+        <div class="stat-sub">1 coin = $0.25</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REFERRAL CODE + LINK -->
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-head-icon"><i class="fas fa-share-alt"></i></div>
+      <div class="sec-head-text">
+        <div class="sh-title">Your Referral Link &amp; Code</div>
+        <div class="sh-sub">Share to earn <i class="fas fa-coins" style="color:#f59e0b"></i> <span id="secCoinsPerRef">200</span> coins ($<span id="secDollarPerRef">50</span>) per sign-up</div>
+      </div>
+    </div>
+    <div class="sec-body">
+      <!-- Code block -->
+      <div class="code-block">
+        <div class="code-icon"><i class="fas fa-bolt"></i></div>
+        <div style="flex:1;min-width:0">
+          <div class="code-lbl">Your Referral Code</div>
+          <div class="code-val" id="refCode">—</div>
+        </div>
+        <button class="btn-copy-code" id="btnCopyCode" onclick="copyCode()"><i class="fas fa-copy"></i> Copy Code</button>
+      </div>
+      <!-- Link row -->
+      <div class="link-row">
+        <div class="link-display"><i class="fas fa-link"></i><span class="link-text" id="refLink">—</span></div>
+        <button class="btn-copy-link" id="btnCopyLink" onclick="copyLink()"><i class="fas fa-copy"></i> Copy</button>
+        <button class="btn-share" onclick="shareLink()"><i class="fas fa-share-alt"></i> Share</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3" style="margin-bottom:1.2rem">
+    <!-- Coin Value Breakdown -->
+    <div class="col-lg-6">
+      <div class="sec" style="margin-bottom:0;height:100%">
+        <div class="sec-head">
+          <div class="sec-head-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="sec-head-text">
+            <div class="sh-title">Coin Value Breakdown</div>
+            <div class="sh-sub">Your balance converted to USD</div>
+          </div>
+        </div>
+        <div class="coin-grid">
+          <div class="coin-cell">
+            <div class="coin-big" id="bkCoins">—</div>
+            <div class="stat-lbl" style="margin-top:.25rem">Total Coins</div>
+            <div style="font-size:.68rem;color:#cbd5e1;margin-top:.18rem">1 coin = $0.25 USD</div>
+          </div>
+          <div class="coin-cell">
+            <div class="coin-big green">$<span id="bkUSD">0.00</span></div>
+            <div class="stat-lbl" style="color:#16a34a;margin-top:.25rem">US Dollars</div>
+            <div style="font-size:.68rem;color:#86efac;margin-top:.18rem">Rate: 200 coins = $50</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How It Works -->
+    <div class="col-lg-6">
+      <div class="sec" style="margin-bottom:0;height:100%">
+        <div class="sec-head">
+          <div class="sec-head-icon" style="background:#fff7ed;color:#f59e0b"><i class="fas fa-sparkles"></i></div>
+          <div class="sec-head-text">
+            <div class="sh-title">How It Works</div>
+          </div>
+        </div>
+        <div class="sec-body">
+          <div class="how-grid">
+            <div class="how-item">
+              <div class="how-num">01</div>
+              <div>
+                <div class="how-title">Share Your Code</div>
+                <div class="how-desc" id="howDesc1">Copy your code and share it with friends or on social media.</div>
+              </div>
+            </div>
+            <div class="how-item">
+              <div class="how-num">02</div>
+              <div>
+                <div class="how-title">Friend Registers</div>
+                <div class="how-desc" id="howDesc2">When someone enters your code during registration, you earn <i class="fas fa-coins" style="color:#f59e0b"></i> 200 coins instantly.</div>
+              </div>
+            </div>
+            <div class="how-item">
+              <div class="how-num">03</div>
+              <div>
+                <div class="how-title">Earn $50 Value</div>
+                <div class="how-desc">200 coins = $50 in value. Use coins to unlock premium data packages.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Referred Users -->
+  <div class="sec">
+    <div class="sec-head" style="justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:.7rem">
+        <div class="sec-head-icon"><i class="fas fa-users"></i></div>
+        <div class="sec-head-text">
+          <div class="sh-title">People You Referred <span style="font-weight:400;font-size:.78rem;color:#94a3b8" id="refCount"></span></div>
+        </div>
+      </div>
+      <button class="btn-rf" onclick="loadReferral()"><i class="fas fa-sync-alt"></i> Refresh</button>
+    </div>
+    <div id="refUsersBody">
+      <div style="text-align:center;padding:2.5rem;color:#94a3b8;font-size:.83rem"><i class="fas fa-spinner fa-spin" style="margin-right:.4rem"></i>Loading…</div>
+    </div>
+    <div id="refTotalRow" style="display:none;padding:.65rem 1.1rem;background:#f8fafc;border-top:1px solid #f1f5f9;display:flex;justify-content:space-between;font-size:.76rem;color:#94a3b8">
+      <span>Total earned from referrals: <strong id="totalEarnedCoins" style="color:#1e293b"></strong></span>
+      <span>≈ $<span id="totalEarnedUSD"></span> USD</span>
+    </div>
+  </div>
+
+</div></div>
+
+<script type="module">
+import { getUser, clearAuth, isLoggedIn, isAdmin, getReferralStats } from '../JS/api.js';
+
+if(!isLoggedIn()) { window.location.href='login.html'; }
+const u = getUser();
+const initials = ((u.firstName?.[0]||'')+(u.lastName?.[0]||'')).toUpperCase();
+document.getElementById('sbAv').textContent = initials;
+document.getElementById('sbName').textContent = `${u.firstName} ${u.lastName}`;
+document.getElementById('sbRole').textContent = isAdmin() ? 'ADMIN' : 'MEMBER';
+
+const COIN_TO_USD = 0.25;
+let currentData = null;
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2500);
+}
+
+window.loadReferral = async function(){
+  document.getElementById('ri').classList.add('fa-spin');
+  try {
+    const res = await getReferralStats();
+    if(!res.success) throw new Error(res.message||'Failed to load');
+    currentData = res.data;
+    renderData(res.data);
+  } catch(e) {
+    document.getElementById('refUsersBody').innerHTML=`<div style="margin:1rem;background:#fef2f2;border:1px solid #fecaca;color:#dc2626;border-radius:12px;padding:.75rem 1rem;font-size:.82rem;display:flex;align-items:center;gap:.5rem"><i class="fas fa-exclamation-triangle"></i>${e.message}</div>`;
+  }
+  finally { document.getElementById('ri').classList.remove('fa-spin'); }
+};
+
+function renderData(data){
+  const coins = data.coins||0;
+  const coinsPerRef = data.coinsPerReferral||200;
+  const usdVal = (coins*COIN_TO_USD).toFixed(2);
+  const totalEarned = data.totalEarned||0;
+
+  // Hero
+  document.getElementById('heroCoins').innerHTML = '<i class="fas fa-coins" style="font-size:2rem;margin-right:.3rem;vertical-align:middle;color:#fbbf24"></i> '+coins.toLocaleString();
+  document.getElementById('heroUSD').textContent = usdVal;
+  document.getElementById('heroCoinsPerRef').textContent = coinsPerRef;
+  document.getElementById('heroDollarPerRef').textContent = (coinsPerRef*COIN_TO_USD).toFixed(2);
+  document.getElementById('heroReferrals').textContent = (data.totalReferred||0)+' referrals';
+  document.getElementById('heroEarned').innerHTML = '<i class="fas fa-coins"></i> '+totalEarned.toLocaleString()+' earned';
+
+  // Stats
+  document.getElementById('stCoins').innerHTML = '<i class="fas fa-coins" style="color:#f59e0b;margin-right:.25rem"></i> '+coins.toLocaleString();
+  document.getElementById('stReferred').textContent = data.totalReferred||0;
+  document.getElementById('stUSD').textContent = '$'+usdVal;
+
+  // Code & Link
+  document.getElementById('refCode').textContent = data.referralCode||'—';
+  document.getElementById('refLink').textContent = data.referralLink||'—';
+  document.getElementById('secCoinsPerRef').textContent = coinsPerRef;
+  document.getElementById('secDollarPerRef').textContent = (coinsPerRef*COIN_TO_USD).toFixed(0);
+
+  // Breakdown
+  document.getElementById('bkCoins').innerHTML = '<i class="fas fa-coins" style="color:#f59e0b;margin-right:.25rem"></i> '+coins.toLocaleString();
+  document.getElementById('bkUSD').textContent = usdVal;
+
+  // How it works dynamic text
+  document.getElementById('howDesc1').textContent = `Copy your code (${data.referralCode||'—'}) and share it with friends or on social media.`;
+  document.getElementById('howDesc2').innerHTML = `When someone enters your code during registration, you earn <i class="fas fa-coins" style="color:#f59e0b"></i> ${coinsPerRef} coins instantly.`;
+
+  // Referred Users
+  const users = data.referredUsers||[];
+  document.getElementById('refCount').textContent = users.length ? `(${users.length})` : '';
+  if(!users.length){
+    document.getElementById('refUsersBody').innerHTML = `<div class="empty-ref">
+      <div style="font-size:2.8rem;color:#f59e0b"><i class="fas fa-coins"></i></div>
+      <p style="font-weight:700;color:#475569;font-size:.9rem">No referrals yet</p>
+      <p style="color:#94a3b8;font-size:.8rem;max-width:300px">Share your code <strong style="color:#92400e">${data.referralCode||'—'}</strong> — earn <i class="fas fa-coins" style="color:#f59e0b"></i> ${coinsPerRef} coins ($${(coinsPerRef*COIN_TO_USD).toFixed(0)}) for every friend who joins!</p>
+      <button class="btn-share" onclick="window.shareLink()" style="margin-top:.4rem"><i class="fas fa-share-alt"></i> Share My Code Now</button>
+    </div>`;
+    document.getElementById('refTotalRow').style.display='none';
+  } else {
+    document.getElementById('refUsersBody').innerHTML = `
+      <div class="ref-table-head">
+        <span>User</span>
+        <span style="width:110px;text-align:center">Coins Earned</span>
+        <span style="width:80px;text-align:right">Status</span>
+      </div>
+      <div>${users.map(u=>`
+        <div class="ref-row">
+          <div style="display:flex;align-items:center;gap:.65rem;min-width:0">
+            <div class="ref-av">${(u.name||u.email||'?')[0].toUpperCase()}</div>
+            <div style="min-width:0">
+              <div class="ref-name">${u.name||'Unknown'}</div>
+              <div class="ref-email">${u.email||''}</div>
+            </div>
+          </div>
+          <div style="width:110px;display:flex;flex-direction:column;align-items:center;gap:.18rem">
+            <span class="coin-badge"><i class="fas fa-coins"></i> ${(u.coins||0).toLocaleString()}</span>
+            <span style="font-size:.66rem;color:#94a3b8">$${((u.coins||0)*COIN_TO_USD).toFixed(2)}</span>
+          </div>
+          <div style="width:80px;display:flex;justify-content:flex-end">
+            <span class="status-badge ${u.status==='active'?'s-active':'s-pending'}">${u.status==='active'?'✓ Active':'⏳ Pending'}</span>
+          </div>
+        </div>`).join('')}</div>`;
+    const totalRow = document.getElementById('refTotalRow');
+    document.getElementById('totalEarnedCoins').innerHTML = '<i class="fas fa-coins" style="color:#f59e0b;margin-right:.2rem"></i> '+totalEarned.toLocaleString();
+    document.getElementById('totalEarnedUSD').textContent = (totalEarned*COIN_TO_USD).toFixed(2);
+    totalRow.style.display='flex';
+  }
+}
+
+window.copyCode = function(){
+  const code = document.getElementById('refCode').textContent;
+  navigator.clipboard.writeText(code).then(()=>{
+    const btn = document.getElementById('btnCopyCode');
+    btn.classList.add('copied'); btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+    showToast('Referral code copied!');
+    setTimeout(()=>{btn.classList.remove('copied');btn.innerHTML='<i class="fas fa-copy"></i> Copy Code';},2200);
+  });
+};
+
+window.copyLink = function(){
+  const link = document.getElementById('refLink').textContent;
+  navigator.clipboard.writeText(link).then(()=>{
+    const btn = document.getElementById('btnCopyLink');
+    btn.classList.add('copied'); btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+    showToast('Referral link copied!');
+    setTimeout(()=>{btn.classList.remove('copied');btn.innerHTML='<i class="fas fa-copy"></i> Copy';},2200);
+  });
+};
+
+window.shareLink = function(){
+  const link = document.getElementById('refLink').textContent;
+  if(navigator.share){ navigator.share({title:'Join & get rewards!',url:link}); }
+  else { window.copyLink(); }
+};
+
+window.openLogoutModal  = () => { document.getElementById('logoutModal').classList.add('show'); };
+window.closeLogoutModal = () => { document.getElementById('logoutModal').classList.remove('show'); };
+window.confirmLogout    = () => { clearAuth(); window.location.href='/'; };
+window.logout = window.openLogoutModal;
+window.toggleSidebar = () => {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('show');
+};
+
+loadReferral();
+</script>
+<!-- LOGOUT CONFIRM MODAL -->
+<div class="modal-overlay" id="logoutModal">
+  <div class="logout-modal-box">
+    <div class="logout-icon-wrap"><i class="fas fa-sign-out-alt"></i></div>
+    <div class="logout-title">Sign Out?</div>
+    <p class="logout-sub">Are you sure you want to sign out of your account? You'll need to log in again to access your dashboard.</p>
+    <div class="logout-btns">
+      <button class="btn-logout-cancel" onclick="closeLogoutModal()">Stay In</button>
+      <button class="btn-logout-confirm" onclick="confirmLogout()"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

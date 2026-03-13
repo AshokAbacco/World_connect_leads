@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Upload Samples – World Connect Leads</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+/* SHARED SIDEBAR + TOPBAR STYLES - paste into every page's <style> block */
+:root{--primary:#2563eb;--navy:#0f1f5c;--sidebar-w:240px;--topbar-h:64px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:#f4f6fb;color:#1e293b;}
+.sidebar{position:fixed;top:0;left:0;height:100vh;width:var(--sidebar-w);background:var(--navy);display:flex;flex-direction:column;z-index:100;transition:transform .3s;}
+.sb-brand{display:flex;align-items:center;gap:.65rem;padding:1.1rem 1rem;border-bottom:1px solid rgba(255,255,255,.08);}
+.sb-logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#3b82f6,#1d4ed8);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#fff;flex-shrink:0;}
+.sb-brand-text .t1{font-size:.77rem;font-weight:800;color:#fff;line-height:1.2;}
+.sb-brand-text .t2{font-size:.63rem;color:rgba(255,255,255,.45);}
+.sb-user{display:flex;align-items:center;gap:.65rem;padding:.8rem 1rem;border-bottom:1px solid rgba(255,255,255,.08);}
+.sb-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#60a5fa);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;color:#fff;flex-shrink:0;}
+.sb-user-info .un{font-size:.8rem;font-weight:700;color:#fff;}
+.sb-user-info .ur{display:inline-block;font-size:.6rem;font-weight:700;background:rgba(96,165,250,.25);color:#93c5fd;border-radius:20px;padding:.07rem .45rem;margin-top:.1rem;}
+.sb-sec{font-size:.57rem;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.12em;padding:.85rem 1rem .28rem;}
+.sl{display:flex;align-items:center;gap:.62rem;padding:.58rem 1rem;margin:.08rem .55rem;border-radius:9px;color:rgba(255,255,255,.55);font-size:.81rem;font-weight:500;text-decoration:none;transition:.15s;cursor:pointer;border:none;background:none;width:calc(100% - 1.1rem);text-align:left;}
+.sl i{width:16px;text-align:center;font-size:.8rem;flex-shrink:0;}
+.sl:hover{background:rgba(255,255,255,.08);color:#fff;}
+.sl.active{background:linear-gradient(90deg,rgba(59,130,246,.35),rgba(59,130,246,.12));color:#fff;font-weight:700;border-left:3px solid #60a5fa;padding-left:calc(1rem - 3px);}
+.sl .arr{margin-left:auto;font-size:.6rem;opacity:.45;}
+.sl.active .arr{opacity:1;}
+.sb-bottom{margin-top:auto;padding:.7rem .55rem;border-top:1px solid rgba(255,255,255,.08);}
+.sb-logout{display:flex;align-items:center;gap:.62rem;padding:.58rem 1rem;border-radius:9px;color:rgba(255,255,255,.45);font-size:.81rem;cursor:pointer;transition:.15s;border:none;background:none;width:100%;}
+.sb-logout:hover{background:rgba(239,68,68,.15);color:#fca5a5;}
+.topbar{position:fixed;top:0;left:var(--sidebar-w);right:0;height:var(--topbar-h);background:#fff;border-bottom:1px solid #e8ecf4;display:flex;align-items:center;justify-content:space-between;padding:0 1.6rem;z-index:99;gap:1rem;}
+.tb-left .badge-pill{display:inline-flex;align-items:center;gap:.35rem;font-size:.67rem;font-weight:700;color:var(--primary);background:#eff6ff;border:1px solid #bfdbfe;border-radius:20px;padding:.16rem .6rem;margin-bottom:.2rem;}
+.tb-left .page-title{font-size:1.2rem;font-weight:900;color:#1e293b;}
+.btn-rf{display:flex;align-items:center;gap:.4rem;padding:.48rem .95rem;border-radius:10px;border:1.5px solid #e2e8f0;background:#fff;color:#64748b;font-size:.79rem;font-weight:600;cursor:pointer;transition:.2s;}
+.btn-rf:hover{background:#f0f4ff;color:var(--primary);}
+.main{margin-left:var(--sidebar-w);padding-top:var(--topbar-h);min-height:100vh;}
+.page{padding:1.5rem 1.6rem;}
+.sec{background:#fff;border-radius:14px;border:1px solid #e8ecf4;overflow:hidden;margin-bottom:1.2rem;}
+.sec-head{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.3rem;border-bottom:1px solid #f1f5f9;}
+.sec-head h3{font-size:.88rem;font-weight:800;color:#1e293b;display:flex;align-items:center;gap:.45rem;}
+.sec-head a{font-size:.76rem;color:var(--primary);text-decoration:none;font-weight:600;}
+.sec-body{padding:.85rem 1.2rem;}
+.btn-primary{display:flex;align-items:center;justify-content:center;gap:.45rem;padding:.72rem 1.4rem;border-radius:11px;border:none;background:linear-gradient(90deg,var(--navy),var(--primary));color:#fff;font-weight:700;font-size:.87rem;cursor:pointer;transition:opacity .2s;}
+.btn-primary:hover{opacity:.9;}
+.btn-primary:disabled{opacity:.6;cursor:not-allowed;}
+.badge{display:inline-block;font-size:.62rem;font-weight:700;padding:.2rem .55rem;border-radius:20px;}
+.badge-blue{background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;}
+.badge-green{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0;}
+.badge-orange{background:#fff7ed;color:#ea580c;border:1px solid #fed7aa;}
+.tbl{width:100%;border-collapse:collapse;}
+.tbl th{font-size:.67rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.06em;padding:.65rem 1rem;background:#f8faff;border-bottom:1px solid #e8ecf4;text-align:left;}
+.tbl td{font-size:.82rem;color:#1e293b;padding:.72rem 1rem;border-bottom:1px solid #f8faff;vertical-align:middle;}
+.tbl tr:last-child td{border:none;}
+.tbl tr:hover td{background:#fafbff;}
+.form-lbl{font-size:.75rem;font-weight:700;color:#374151;margin-bottom:.28rem;display:block;}
+.form-inp{width:100%;border:1.5px solid #e2e8f0;border-radius:10px;padding:.65rem 1rem;font-size:.87rem;outline:none;transition:border-color .2s;font-family:inherit;}
+.form-inp:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(37,99,235,.1);}
+.alert{font-size:.8rem;padding:.65rem 1rem;border-radius:10px;margin-top:.65rem;display:none;}
+.alert.ok{background:#f0fdf4;border:1px solid #bbf7d0;color:#16a34a;display:block;}
+.alert.err{background:#fef2f2;border:1px solid #fecaca;color:#dc2626;display:block;}
+.sb-toggle{display:none;}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:99;}
+.overlay.show{display:block;}
+@media(max-width:900px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main{margin-left:0}.topbar{left:0}.sb-toggle{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:9px;border:1.5px solid #e2e8f0;background:#fff;cursor:pointer;font-size:.9rem;color:#64748b;}}
+@media(max-width:520px){.page{padding:1rem;}}
+
+/* steps */
+.steps{display:flex;gap:0;margin-bottom:1.5rem;}
+.step{flex:1;display:flex;flex-direction:column;align-items:center;gap:.3rem;position:relative;}
+.step:not(:last-child)::after{content:'';position:absolute;top:14px;left:50%;width:100%;height:2px;background:#e2e8f0;z-index:0;}
+.step.done::after{background:var(--primary);}
+.snum{width:28px;height:28px;border-radius:50%;border:2px solid #e2e8f0;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#94a3b8;background:#fff;z-index:1;position:relative;transition:.2s;}
+.step.act .snum{border-color:var(--primary);color:var(--primary);}
+.step.done .snum{border-color:var(--primary);background:var(--primary);color:#fff;}
+.slbl2{font-size:.65rem;font-weight:600;color:#94a3b8;text-align:center;}
+.step.act .slbl2,.step.done .slbl2{color:var(--primary);}
+/* site cards */
+.site-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1rem;}
+.site-card{border:2px solid #e2e8f0;border-radius:12px;padding:.9rem .7rem;text-align:center;cursor:pointer;transition:.2s;}
+.site-card:hover{border-color:var(--primary);background:#f8faff;}
+.site-card.sel{border-color:var(--primary);background:#eff6ff;}
+.site-card .si{font-size:1.5rem;margin-bottom:.35rem;}
+.site-card .sn{font-size:.77rem;font-weight:700;color:#1e293b;}
+.site-card .sd{font-size:.65rem;color:#94a3b8;margin-top:.1rem;}
+/* drop zone */
+.drop{border:2px dashed #bfdbfe;border-radius:14px;padding:2.2rem;text-align:center;background:#f8faff;cursor:pointer;transition:.2s;}
+.drop:hover,.drop.over{border-color:var(--primary);background:#eff6ff;}
+.drop i{font-size:2.2rem;color:#93c5fd;margin-bottom:.65rem;}
+.drop p{font-size:.84rem;color:#64748b;margin:0;}
+.drop small{font-size:.72rem;color:#94a3b8;}
+.file-chosen{background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:12px;padding:.75rem 1rem;display:flex;align-items:center;gap:.7rem;margin-top:.75rem;}
+.file-chosen .fn{font-size:.83rem;font-weight:600;color:#1e293b;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.file-chosen .rm{background:none;border:none;color:#94a3b8;cursor:pointer;font-size:.85rem;}
+/* confirm */
+.conf-row{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid #f1f5f9;font-size:.84rem;}
+.conf-row:last-child{border:none;}
+.conf-row .cl{color:#64748b;font-size:.8rem;}
+.conf-row .cv{font-weight:700;color:#1e293b;}
+.btn-back{width:100%;padding:.72rem;border-radius:11px;border:1.5px solid #e2e8f0;background:#fff;color:#64748b;font-weight:700;font-size:.87rem;cursor:pointer;margin-bottom:.65rem;}
+/* progress */
+.prog-bar-wrap{height:7px;background:#e2e8f0;border-radius:10px;overflow:hidden;margin-bottom:.4rem;}
+.prog-bar{height:100%;background:linear-gradient(90deg,var(--navy),var(--primary));width:0%;transition:width .3s;border-radius:10px;}
+/* history table */
+.htbl{width:100%;border-collapse:collapse;}
+.htbl th{font-size:.66rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.06em;padding:.6rem 1rem;background:#f8faff;border-bottom:1px solid #e8ecf4;text-align:left;}
+.htbl td{font-size:.81rem;color:#1e293b;padding:.7rem 1rem;border-bottom:1px solid #f8faff;vertical-align:middle;}
+.htbl tr:last-child td{border:none;}
+.htbl tr:hover td{background:#fafbff;}
+.wb{font-size:.62rem;font-weight:700;padding:.18rem .5rem;border-radius:6px;}
+.wi{background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;}
+.wc{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0;}
+.ww{background:#fff7ed;color:#ea580c;border:1px solid #fed7aa;}
+@media(max-width:600px){.site-grid{grid-template-columns:1fr 1fr;}}
+  </style>
+</head>
+<body>
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <div class="sb-logo"><i class="fas fa-globe"></i></div>
+    <div class="sb-brand-text"><div class="t1">World Connect</div><div class="t2">Leads Platform</div></div>
+  </div>
+  <div class="sb-user">
+    <div class="sb-av" id="sbAv"></div>
+    <div class="sb-user-info"><div class="un" id="sbName"></div><div class="ur" id="sbRole"></div></div>
+  </div>
+  <div class="sb-sec">Main Menu</div>
+  <a class="sl" href="/Dashboard.html"><i class="fas fa-th-large"></i>Dashboard</a>
+  <a class="sl" href="/MyProjects.html"><i class="fas fa-folder"></i>My Projects</a>
+  <a class="sl" href="/Memberships.html"><i class="fas fa-id-card"></i>Projects Memberships</a>
+  <a class="sl" href="/Samples.html"><i class="fas fa-database"></i>Samples</a>
+  <a class="sl" href="/MyProfile.html"><i class="fas fa-user-circle"></i>My Profile</a>
+  <div class="sb-sec">Admin</div>
+  <a class="sl active" href="/UploadSamples.html"><i class="fas fa-cloud-upload-alt"></i>Upload Samples<i class="fas fa-chevron-right arr"></i></a>
+  <div class="sb-sec">Earn</div>
+  <a class="sl" href="/Memberships.html"><i class="fas fa-gift"></i>Refer &amp; Earn</a>
+  <div class="sb-bottom">
+    <button class="sb-logout" onclick="logout()"><i class="fas fa-sign-out-alt"></i>Sign Out</button>
+  </div>
+</aside>
+<div class="topbar">
+  <div style="display:flex;align-items:center;gap:.8rem">
+    <button class="sb-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+    <div class="tb-left">
+      <div class="badge-pill"><i class="fas fa-circle" style="font-size:.4rem"></i>ADMIN</div>
+      <div class="page-title">Upload Samples</div>
+    </div>
+  </div>
+</div>
+<div class="main"><div class="page">
+  <div class="row g-3">
+    <div class="col-lg-5">
+      <div class="sec">
+        <div class="sec-head"><h3><i class="fas fa-cloud-upload-alt" style="color:var(--primary)"></i>Upload New Sample</h3></div>
+        <div class="sec-body">
+          <!-- steps -->
+          <div class="steps">
+            <div class="step act" id="st1"><div class="snum">1</div><div class="slbl2">Select Site</div></div>
+            <div class="step" id="st2"><div class="snum">2</div><div class="slbl2">Choose File</div></div>
+            <div class="step" id="st3"><div class="snum">3</div><div class="slbl2">Upload</div></div>
+          </div>
+          <!-- Step 1 -->
+          <div id="step1">
+            <p style="font-size:.81rem;color:#64748b;margin-bottom:.85rem">Which website is this sample for?</p>
+            <div class="site-grid">
+              <div class="site-card sel" id="sc-ibs" onclick="setSite('ibsoln')"><div class="si">🌐</div><div class="sn">IBS</div><div class="sd">ibsoln.com</div></div>
+              <div class="site-card" id="sc-ch" onclick="setSite('clienthub')"><div class="si">🏢</div><div class="sn">Client Hub</div><div class="sd">clienthubsolutions.com</div></div>
+              <div class="site-card" id="sc-wcl" onclick="setSite('worldconnectleads')"><div class="si">🌍</div><div class="sn">WCL</div><div class="sd">worldconnectleads.com</div></div>
+            </div>
+            <button class="btn-primary" style="width:100%" onclick="goStep(2)"><i class="fas fa-arrow-right"></i> Continue</button>
+          </div>
+          <!-- Step 2 -->
+          <div id="step2" style="display:none">
+            <button class="btn-back" onclick="goStep(1)"><i class="fas fa-arrow-left me-1"></i>Back</button>
+            <div class="drop" id="dropzone" onclick="document.getElementById('fileInput').click()" ondragover="onDrag(event,true)" ondragleave="onDrag(event,false)" ondrop="onDrop(event)">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <p>Click to choose or drag &amp; drop</p>
+              <small>XLSX, XLS, CSV, TXT — max 20MB</small>
+            </div>
+            <div id="fileChosen" style="display:none" class="file-chosen">
+              <i class="fas fa-file-excel" style="color:#16a34a;font-size:1rem"></i>
+              <span class="fn" id="fileName"></span>
+              <button class="rm" onclick="clearFile()"><i class="fas fa-times"></i></button>
+            </div>
+            <input type="file" id="fileInput" accept=".xlsx,.xls,.csv,.txt" style="display:none" onchange="onFile(this)">
+            <button class="btn-primary mt-3" style="width:100%" id="nextBtn" onclick="goStep(3)" disabled><i class="fas fa-arrow-right"></i> Continue</button>
+          </div>
+          <!-- Step 3 -->
+          <div id="step3" style="display:none">
+            <button class="btn-back" onclick="goStep(2)"><i class="fas fa-arrow-left me-1"></i>Back</button>
+            <div style="background:#f8faff;border-radius:12px;border:1px solid #e2e8f0;padding:.9rem 1rem;margin-bottom:1rem">
+              <div class="conf-row"><span class="cl">Website</span><span class="cv" id="cfSite"></span></div>
+              <div class="conf-row"><span class="cl">File Name</span><span class="cv" id="cfFile" style="max-width:200px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></span></div>
+              <div class="conf-row"><span class="cl">File Size</span><span class="cv" id="cfSize"></span></div>
+            </div>
+            <div id="progWrap" style="display:none;margin-bottom:.75rem">
+              <div class="prog-bar-wrap"><div class="prog-bar" id="progBar"></div></div>
+              <p style="font-size:.71rem;color:#64748b;text-align:center" id="progTxt">Uploading...</p>
+            </div>
+            <div id="uMsg" class="alert"></div>
+            <button class="btn-primary" style="width:100%" id="uploadBtn" onclick="doUpload()"><i class="fas fa-upload"></i> Upload Sample</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-7">
+      <div class="sec">
+        <div class="sec-head"><h3><i class="fas fa-history" style="color:var(--primary)"></i>All Uploaded Samples</h3><span id="histCount" style="font-size:.74rem;color:#94a3b8;font-weight:600"></span></div>
+        <div style="overflow:auto"><div id="histWrap"><p style="color:#94a3b8;font-size:.83rem;text-align:center;padding:3rem">Loading...</p></div></div>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<script type="module">
+import { getUser, clearAuth, isLoggedIn, isAdmin, uploadSample, getAllSamplesAdmin, deleteSample } from './JS/api.js';
+if(!isLoggedIn()||!isAdmin()) window.location.href='dashboard.html';
+const u=getUser();
+const ini=((u.firstName?.[0]||'')+( u.lastName?.[0]||'')).toUpperCase();
+document.getElementById('sbAv').textContent=ini;
+document.getElementById('sbName').textContent=u.firstName+' '+u.lastName;
+document.getElementById('sbRole').textContent='ADMIN';
+window.logout=()=>{clearAuth();window.location.href='login.html';};
+window.toggleSidebar=()=>{document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('show');};
+
+const SITES={ibsoln:{label:'IBS - ibsoln.com',cls:'wi'},clienthub:{label:'Client Hub - clienthubsolutions.com',cls:'wc'},worldconnectleads:{label:'WCL - worldconnectleads.com',cls:'ww'}};
+let site='ibsoln',file=null;
+const fmtSize=b=>!b?'—':b<1024?b+' B':b<1048576?(b/1024).toFixed(1)+' KB':(b/1048576).toFixed(1)+' MB';
+
+window.setSite=s=>{
+  site=s;
+  ['ibs','ch','wcl'].forEach(k=>document.getElementById('sc-'+k)?.classList.remove('sel'));
+  const m={ibsoln:'ibs',clienthub:'ch',worldconnectleads:'wcl'};
+  document.getElementById('sc-'+m[s])?.classList.add('sel');
+};
+window.goStep=n=>{
+  [1,2,3].forEach(i=>{document.getElementById('step'+i).style.display=i===n?'':'none';});
+  [1,2,3].forEach(i=>{const el=document.getElementById('st'+i);el.classList.remove('act','done');if(i<n)el.classList.add('done');if(i===n)el.classList.add('act');});
+  if(n===3){document.getElementById('cfSite').textContent=SITES[site]?.label;document.getElementById('cfFile').textContent=file?.name||'—';document.getElementById('cfSize').textContent=fmtSize(file?.size);}
+};
+window.onFile=inp=>{const f=inp.files[0];if(!f)return;file=f;document.getElementById('fileName').textContent=f.name;document.getElementById('fileChosen').style.display='flex';document.getElementById('nextBtn').disabled=false;};
+window.clearFile=()=>{file=null;document.getElementById('fileChosen').style.display='none';document.getElementById('nextBtn').disabled=true;document.getElementById('fileInput').value='';};
+window.onDrag=(e,over)=>{e.preventDefault();document.getElementById('dropzone').classList.toggle('over',over);};
+window.onDrop=e=>{e.preventDefault();document.getElementById('dropzone').classList.remove('over');const f=e.dataTransfer.files[0];if(f){file=f;document.getElementById('fileName').textContent=f.name;document.getElementById('fileChosen').style.display='flex';document.getElementById('nextBtn').disabled=false;}};
+
+window.doUpload=async()=>{
+  if(!file)return;
+  const btn=document.getElementById('uploadBtn'),msg=document.getElementById('uMsg'),pw=document.getElementById('progWrap');
+  msg.className='alert';btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Uploading...';pw.style.display='block';
+  let p=0;const iv=setInterval(()=>{if(p<85){p+=4;document.getElementById('progBar').style.width=p+'%';document.getElementById('progTxt').textContent='Uploading... '+p+'%';}},250);
+  try{
+    const fd=new FormData();fd.append('file',file);fd.append('website',site);
+    const r=await uploadSample(fd);
+    clearInterval(iv);document.getElementById('progBar').style.width='100%';document.getElementById('progTxt').textContent='Done!';
+    if(r.success){msg.className='alert ok';msg.textContent='Uploaded successfully!';setTimeout(()=>{goStep(1);clearFile();setSite('ibsoln');msg.className='alert';pw.style.display='none';loadHistory();},1500);}
+    else{msg.className='alert err';msg.textContent=r.message||'Upload failed.';}
+  }catch{clearInterval(iv);msg.className='alert err';msg.textContent='Network error.';}
+  finally{btn.disabled=false;btn.innerHTML='<i class="fas fa-upload"></i> Upload Sample';}
+};
+
+window.doDelete=async id=>{
+  if(!confirm('Delete this sample?'))return;
+  const r=await deleteSample(id);if(r.success)loadHistory();else alert(r.message||'Delete failed');
+};
+
+async function loadHistory(){
+  try{
+    const r=await getAllSamplesAdmin('');const ss=r.success?r.data:[];
+    document.getElementById('histCount').textContent=ss.length+' files';
+    if(!ss.length){document.getElementById('histWrap').innerHTML='<p style="color:#94a3b8;font-size:.83rem;text-align:center;padding:3rem">No uploads yet</p>';return;}
+    document.getElementById('histWrap').innerHTML='<table class="htbl"><thead><tr><th>File</th><th>Site</th><th>Rows</th><th>Date</th><th></th></tr></thead><tbody>'+ss.map(s=>{const wb=SITES[s.website]?.cls||'wi';return '<tr><td style="font-weight:600;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+s.originalName+'</td><td><span class="wb '+wb+'">'+s.website+'</span></td><td>'+(s.rowCount?.toLocaleString()??'—')+'</td><td>'+new Date(s.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})+'</td><td><button onclick="doDelete('+s.id+')" style="background:#fef2f2;border:1px solid #fecaca;color:#dc2626;border-radius:7px;padding:.25rem .5rem;font-size:.72rem;cursor:pointer"><i class="fas fa-trash"></i></button></td></tr>';}).join('')+'</tbody></table>';
+  }catch{document.getElementById('histWrap').innerHTML='<p style="color:#94a3b8;text-align:center;padding:3rem">Failed to load</p>';}
+}
+loadHistory();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body></html>

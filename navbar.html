@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Navbar</title>
 </head>
 <style>
-/* 🌐 Navbar Styles */
 :root {
   --primary-blue: #2563eb;
+  --navy: #0f1f5c;
   --gray-600: #64748b;
 }
-
-/* Main navbar container */
 .navbar {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
@@ -20,170 +18,134 @@
   transition: all 0.3s ease;
   padding: 1rem 1.5rem;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   z-index: 1000;
 }
-
-/* Brand name/logo */
-/* Brand name/logo */
 .navbar-brand {
   font-weight: 700;
-  font-size: clamp(1.2rem, 2vw, 1.8rem); /* min → responsive → max */
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
   color: var(--primary-blue) !important;
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  
 }
-
-/* Individual links */
 .nav-link {
   font-weight: 600;
-  font-size: clamp(0.9rem, 1.2vw, 1.1rem); /* scales nicely */
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
   color: var(--gray-600) !important;
   position: relative;
   transition: all 0.3s ease;
   padding: 4px 6px;
   text-decoration: none;
-
 }
-
-.collapse
-{
-    margin-right: 150px;
-}
-
-/* Navigation list */
-.navbar-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  list-style: none;
-  margin-right: 150px;
-  padding: 0;
-}
-
- 
-
-/* Hover effect */
-.nav-link:hover {
-  color: var(--primary-blue) !important;
-  transform: translateY(-2px);
-}
-
-/* Underline animation */
+.nav-link:hover { color: var(--primary-blue) !important; transform: translateY(-2px); }
 .nav-link::after {
   content: '';
   position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -5px;
-  left: 50%;
+  width: 0; height: 2px;
+  bottom: -5px; left: 50%;
   background: var(--primary-blue);
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
+.nav-link:hover::after { width: 100%; }
+.nav-link.active { color: var(--primary-blue) !important; }
+.nav-link.active::after { width: 100%; }
+.collapse { margin-right: 0 !important; }
 
-.nav-link:hover::after {
-  width: 100%;
+/* member button */
+.btn-member {
+  background: linear-gradient(90deg, var(--navy), var(--primary-blue));
+  color: #fff !important;
+  border-radius: 25px;
+  padding: .45rem 1.1rem !important;
+  font-weight: 700 !important;
+  font-size: .85rem !important;
+  transition: opacity .2s, transform .1s;
+  text-decoration: none;
+  white-space: nowrap;
 }
+.btn-member:hover { opacity: .9; transform: translateY(-1px); }
+.btn-member::after { display: none !important; }
 
-/* Active link */
-.nav-link.active {
-  color: var(--primary-blue) !important;
+/* user pill */
+.user-pill {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  background: #eff6ff;
+  border: 1.5px solid #bfdbfe;
+  border-radius: 25px;
+  padding: .3rem .9rem .3rem .45rem;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  cursor: pointer;
+  text-decoration: none;
 }
-
-.nav-link.active::after {
-  width: 100%;
+.user-pill .avatar {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy), var(--primary-blue));
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .7rem; font-weight: 800;
 }
-/* Remove forced margin */
-.collapse {
-  margin-right: 0 !important;
-}
-
-/* ✅ Responsive adjustments for small screens */
-@media (max-width: 425px){
-    .nav-link {
-    font-size: 0.9rem; /* shrink nav links */
-    padding: 6px 0px;
-    margin-right: 100px;
-
-  }
-}
-
-@media (max-width: 768px){
-    .nav-link {
-    font-size: 0.9rem; /* shrink nav links */
-    padding: 6px 0px;
-    margin-right: 450px;
-  }
-}
-@media (max-width: 375px) {
-  .navbar-brand {
-    font-size: 1.1rem; /* smaller brand text */
-  }
-
-  .nav-link {
-    font-size: 0.9rem; /* shrink nav links */
-    padding: 6px 0px;
-    margin-right: 100px;
-  }
-
-  .navbar-toggler {
-    padding: 4px 6px;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 320px) {
-  .navbar-brand {
-    font-size: 1rem; /* even smaller */
-  }
-
-  .nav-link {
-    font-size: 0.85rem;
-  
-  }
-
-  .navbar-toggler {
-    padding: 3px 5px;
-    font-size: 0.8rem;
-    
-  }
-}
-
+@media (max-width: 425px){ .nav-link { font-size: .9rem; padding: 6px 0; } }
+@media (max-width: 768px){ .nav-link { font-size: .9rem; padding: 6px 0; } }
+@media (max-width: 375px){ .navbar-brand { font-size: 1.1rem; } .nav-link { font-size: .9rem; } }
+@media (max-width: 320px){ .navbar-brand { font-size: 1rem; } .nav-link { font-size: .85rem; } }
 </style>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container-fluid d-flex justify-content-between align-items-center">
-    
-    <!-- Brand -->
     <a class="navbar-brand fw-bold d-flex align-items-center" href="/">
       <i class="fas fa-globe me-2"></i> World Connect Leads
     </a>
-
-    <!-- Toggle button (kept at top-right) -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <!-- Navigation -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-lg-auto text-start">
+      <ul class="navbar-nav ms-lg-auto text-start align-items-lg-center" style="gap:1.5rem;">
         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
         <li class="nav-item"><a class="nav-link" href="whoWe.html">Who We Are</a></li>
+        <li class="nav-item"><a class="nav-link" href="samples.html">Samples</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <!-- dynamic auth area -->
+        <li class="nav-item" id="navAuthArea">
+          <a class="btn-member" href="login.html"><i class="fas fa-user me-1"></i> Member Login</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 
+<script>
+  // Always show login button (remove dashboard auto link)
+  try {
+    document.getElementById('navAuthArea').innerHTML = `
+      <a class="btn-member" href="login.html">
+        <i class="fas fa-user me-1"></i> Member Login
+      </a>
+    `;
+  } catch(e) {}
 
+  // set active link
+  try {
+    const path = window.location.pathname.split('/').pop() || 'index.html';
 
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const href = link.getAttribute('href')?.split('/').pop();
+
+      if (href === path || (path === '' && href === 'index.html')) {
+        link.classList.add('active');
+      }
+    });
+
+  } catch(e) {}
+</script>
 </body>
 </html>
