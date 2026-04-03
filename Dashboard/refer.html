@@ -187,7 +187,7 @@ body{font-family:'Inter',sans-serif;background:#f4f6fb;color:#1e293b;}
       <div>
         <div class="hero-label"><i class="fas fa-star" style="margin-right:.3rem"></i>Referral Rewards</div>
         <h1>Refer &amp; Earn<br><span>Coins</span></h1>
-        <p>Share your unique referral code. Every friend who joins earns you <strong><i class="fas fa-coins" style="color:#fbbf24"></i> <span id="heroCoinsPerRef">200</span> coins</strong> worth <strong>$<span id="heroDollarPerRef">50.00</span></strong>.</p>
+        <p>Share your unique referral code. Every friend who joins earns you <strong><img src="../image//WCL_coin.png" alt="" style="width:1.1em;height:1.1em;vertical-align:middle;object-fit:contain;"> <span id="heroCoinsPerRef">200</span> coins</strong> worth <strong>$<span id="heroDollarPerRef">50.00</span></strong>.</p>
       </div>
       <div class="coin-panel-hero">
         <div class="cp-lbl">Your Coin Balance</div>
@@ -195,7 +195,7 @@ body{font-family:'Inter',sans-serif;background:#f4f6fb;color:#1e293b;}
         <div class="cp-usd">≈ $<span id="heroUSD">0.00</span> USD</div>
         <div class="cp-tags">
           <span class="coin-tag" id="heroReferrals">0 referrals</span>
-          <span class="coin-tag" id="heroEarned"><i class="fas fa-coins"></i> 0 earned</span>
+          <span class="coin-tag" id="heroEarned"><img src="../image//WCL_coin.png" alt="" style="width:1.1em;height:1.1em;vertical-align:middle;object-fit:contain;"> 0 earned</span>
         </div>
       </div>
     </div>
@@ -204,7 +204,7 @@ body{font-family:'Inter',sans-serif;background:#f4f6fb;color:#1e293b;}
   <!-- STAT CARDS -->
   <div class="stat-grid">
     <div class="stat-card">
-      <div class="stat-icon" style="background:#edfff2;color:#02c433"><i class="fas fa-coins"></i></div>
+      <div class="stat-icon" style="background:#edfff2;color:#02c433"><img src="../image//WCL_coin.png" alt="" style="width:1.1em;height:1.1em;vertical-align:middle;object-fit:contain;"></div>
       <div>
         <div class="stat-lbl">Current Balance</div>
         <div class="stat-val" id="stCoins">—</div>
@@ -224,7 +224,7 @@ body{font-family:'Inter',sans-serif;background:#f4f6fb;color:#1e293b;}
       <div>
         <div class="stat-lbl">USD Value</div>
         <div class="stat-val" id="stUSD">—</div>
-        <div class="stat-sub">1 coin = $0.25</div>
+        <div class="stat-sub">1 coin = $0.50</div>
       </div>
     </div>
   </div>
@@ -235,7 +235,7 @@ body{font-family:'Inter',sans-serif;background:#f4f6fb;color:#1e293b;}
       <div class="sec-head-icon"><i class="fas fa-share-alt"></i></div>
       <div class="sec-head-text">
         <div class="sh-title">Your Referral Link &amp; Code</div>
-        <div class="sh-sub">Share to earn <i class="fas fa-coins" style="color:#f59e0b"></i> <span id="secCoinsPerRef">200</span> coins ($<span id="secDollarPerRef">50</span>) per sign-up</div>
+        <div class="sh-sub">Share to earn <img src="../image//WCL_coin.png" alt="" style="width:1.1em;height:1.1em;vertical-align:middle;object-fit:contain;"> <span id="secCoinsPerRef">200</span> coins ($<span id="secDollarPerRef">50</span>) per sign-up</div>
       </div>
     </div>
     <div class="sec-body">
@@ -272,7 +272,7 @@ body{font-family:'Inter',sans-serif;background:#f4f6fb;color:#1e293b;}
           <div class="coin-cell">
             <div class="coin-big" id="bkCoins">—</div>
             <div class="stat-lbl" style="margin-top:.25rem">Total Coins</div>
-            <div style="font-size:.68rem;color:#cbd5e1;margin-top:.18rem">1 coin = $0.25 USD</div>
+            <div style="font-size:.68rem;color:#cbd5e1;margin-top:.18rem">1 coin = $0.50 USD</div>
           </div>
           <div class="coin-cell">
             <div class="coin-big green">$<span id="bkUSD">0.00</span></div>
@@ -305,7 +305,7 @@ body{font-family:'Inter',sans-serif;background:#f4f6fb;color:#1e293b;}
               <div class="how-num">02</div>
               <div>
                 <div class="how-title">Friend Registers</div>
-                <div class="how-desc" id="howDesc2">When someone enters your code during registration, you earn <i class="fas fa-coins" style="color:#f59e0b"></i> 200 coins instantly.</div>
+                <div class="how-desc" id="howDesc2">When someone enters your code during registration, you earn <img src="../image//WCL_coin.png" alt="" style="width:1.1em;height:1.1em;vertical-align:middle;object-fit:contain;"> 200 coins instantly.</div>
               </div>
             </div>
             <div class="how-item">
@@ -383,15 +383,15 @@ function renderData(data){
   const totalEarned = data.totalEarned||0;
 
   // Hero
-  document.getElementById('heroCoins').innerHTML = '<i class="fas fa-coins" style="font-size:2rem;margin-right:.3rem;vertical-align:middle;color:#fbbf24"></i> '+coins.toLocaleString();
+  document.getElementById('heroCoins').innerHTML = '<img src="../image//WCL_coin.png" alt="" style="width:1.5em;height:1.5em;vertical-align:middle;object-fit:contain;"> '+coins.toLocaleString();
   document.getElementById('heroUSD').textContent = usdVal;
   document.getElementById('heroCoinsPerRef').textContent = coinsPerRef;
   document.getElementById('heroDollarPerRef').textContent = (coinsPerRef*COIN_TO_USD).toFixed(2);
   document.getElementById('heroReferrals').textContent = (data.totalReferred||0)+' referrals';
-  document.getElementById('heroEarned').innerHTML = '<i class="fas fa-coins"></i> '+totalEarned.toLocaleString()+' earned';
+  document.getElementById('heroEarned').innerHTML = '<img src="../image//WCL_coin.png" alt="" style="width:1.1em;height:1.1em;vertical-align:middle;object-fit:contain;"> '+totalEarned.toLocaleString()+' earned';
 
   // Stats
-  document.getElementById('stCoins').innerHTML = '<i class="fas fa-coins" style="color:#f59e0b;margin-right:.25rem"></i> '+coins.toLocaleString();
+  document.getElementById('stCoins').innerHTML = '<img src="../image//WCL_coin.png" alt="" style="width:1.1em;height:1.1em;vertical-align:middle;object-fit:contain;"> '+coins.toLocaleString();
   document.getElementById('stReferred').textContent = data.totalReferred||0;
   document.getElementById('stUSD').textContent = '$'+usdVal;
 
@@ -402,21 +402,21 @@ function renderData(data){
   document.getElementById('secDollarPerRef').textContent = (coinsPerRef*COIN_TO_USD).toFixed(0);
 
   // Breakdown
-  document.getElementById('bkCoins').innerHTML = '<i class="fas fa-coins" style="color:#f59e0b;margin-right:.25rem"></i> '+coins.toLocaleString();
+  document.getElementById('bkCoins').innerHTML = '<img src="../image//WCL_coin.png" alt="" style="width:1.1em;height:1.1em;vertical-align:middle;object-fit:contain;"> '+coins.toLocaleString();
   document.getElementById('bkUSD').textContent = usdVal;
 
   // How it works dynamic text
   document.getElementById('howDesc1').textContent = `Copy your code (${data.referralCode||'—'}) and share it with friends or on social media.`;
-  document.getElementById('howDesc2').innerHTML = `When someone enters your code during registration, you earn <i class="fas fa-coins" style="color:#f59e0b"></i> ${coinsPerRef} coins instantly.`;
+  document.getElementById('howDesc2').innerHTML = `When someone enters your code during registration, you earn <img src="../image//WCL_coin.png" alt="" style="width:1.1em;height:1.1em;vertical-align:middle;object-fit:contain;"> ${coinsPerRef} coins instantly.`;
 
   // Referred Users
   const users = data.referredUsers||[];
   document.getElementById('refCount').textContent = users.length ? `(${users.length})` : '';
   if(!users.length){
     document.getElementById('refUsersBody').innerHTML = `<div class="empty-ref">
-      <div style="font-size:2.8rem;color:#f59e0b"><i class="fas fa-coins"></i></div>
+      <div style="font-size:2.8rem;color:#f59e0b"><img src="../image//WCL_coin.png" alt="" style="width:1.1em;height:1.1em;vertical-align:middle;object-fit:contain;"></div>
       <p style="font-weight:700;color:#475569;font-size:.9rem">No referrals yet</p>
-      <p style="color:#94a3b8;font-size:.8rem;max-width:300px">Share your code <strong style="color:#92400e">${data.referralCode||'—'}</strong> — earn <i class="fas fa-coins" style="color:#f59e0b"></i> ${coinsPerRef} coins ($${(coinsPerRef*COIN_TO_USD).toFixed(0)}) for every friend who joins!</p>
+      <p style="color:#94a3b8;font-size:.8rem;max-width:300px">Share your code <strong style="color:#92400e">${data.referralCode||'—'}</strong> — earn <img src="../image//WCL_coin.png" alt="" style="width:1.1em;height:1.1em;vertical-align:middle;object-fit:contain;"> ${coinsPerRef} coins ($${(coinsPerRef*COIN_TO_USD).toFixed(0)}) for every friend who joins!</p>
       <button class="btn-share" onclick="window.shareLink()" style="margin-top:.4rem"><i class="fas fa-share-alt"></i> Share My Code Now</button>
     </div>`;
     document.getElementById('refTotalRow').style.display='none';
@@ -437,7 +437,7 @@ function renderData(data){
             </div>
           </div>
           <div style="width:110px;display:flex;flex-direction:column;align-items:center;gap:.18rem">
-            <span class="coin-badge"><i class="fas fa-coins"></i> ${(u.coins||0).toLocaleString()}</span>
+            <span class="coin-badge"><img src="../image//WCL_coin.png" alt="" style="width:1.1em;height:1.1em;vertical-align:middle;object-fit:contain;"> ${(u.coins||0).toLocaleString()}</span>
             <span style="font-size:.66rem;color:#94a3b8">$${((u.coins||0)*COIN_TO_USD).toFixed(2)}</span>
           </div>
           <div style="width:80px;display:flex;justify-content:flex-end">
@@ -445,7 +445,7 @@ function renderData(data){
           </div>
         </div>`).join('')}</div>`;
     const totalRow = document.getElementById('refTotalRow');
-    document.getElementById('totalEarnedCoins').innerHTML = '<i class="fas fa-coins" style="color:#f59e0b;margin-right:.2rem"></i> '+totalEarned.toLocaleString();
+    document.getElementById('totalEarnedCoins').innerHTML = '<img src="../image//WCL_coin.png" alt="" style="width:1.1em;height:1.1em;vertical-align:middle;object-fit:contain;"> '+totalEarned.toLocaleString();
     document.getElementById('totalEarnedUSD').textContent = (totalEarned*COIN_TO_USD).toFixed(2);
     totalRow.style.display='flex';
   }

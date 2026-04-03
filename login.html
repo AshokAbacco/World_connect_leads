@@ -38,12 +38,13 @@
     <a class="brand" href="index.html"><i class="fas fa-globe me-2"></i>World Connect Leads</a>
     <a class="back" href="index.html"><i class="fas fa-arrow-left me-1"></i>Back to Home</a>
   </div>
-  
+
   <div class="wrap"><div class="card">
     <div class="tabs">
       <button class="tab active" onclick="showTab('login')">Login</button>
       <button class="tab" onclick="showTab('register')">Register</button>
     </div>
+
     <!-- LOGIN -->
     <div id="loginPanel">
       <div class="hero"><h2><i class="fas fa-sign-in-alt me-2"></i>Welcome Back</h2><p>Sign in to access your member area</p></div>
@@ -55,6 +56,7 @@
         <div class="sw">No account? <a href="#" onclick="showTab('register')">Register here</a></div>
       </div>
     </div>
+
     <!-- REGISTER -->
     <div id="registerPanel" style="display:none">
       <div class="hero"><h2><i class="fas fa-user-plus me-2"></i>Create Account</h2><p>Join World Connect Leads today</p></div>
@@ -75,47 +77,81 @@
 
   <script type="module">
     import { loginUser, registerUser, saveAuth, isLoggedIn } from './JS/api.js';
-    if(isLoggedIn()) window.location.href='/dashboard.html';
-    window.showTab=t=>{
-      document.getElementById('loginPanel').style.display=t==='login'?'':'none';
-      document.getElementById('registerPanel').style.display=t==='register'?'':'none';
-      document.querySelectorAll('.tab').forEach((el,i)=>el.classList.toggle('active',i===(t==='login'?0:1)));
+
+    // ── Website identifier for this deployment ──
+    const WEBSITE_ID = "WCL";   // ← WCL site
+
+    if (isLoggedIn()) window.location.href = '/dashboard.html';
+
+    window.showTab = t => {
+      document.getElementById('loginPanel').style.display    = t === 'login'    ? '' : 'none';
+      document.getElementById('registerPanel').style.display = t === 'register' ? '' : 'none';
+      document.querySelectorAll('.tab').forEach((el, i) => el.classList.toggle('active', i === (t === 'login' ? 0 : 1)));
     };
-    window.doLogin=async()=>{
-      const email=document.getElementById('lEmail').value.trim(),pass=document.getElementById('lPass').value;
-      const msg=document.getElementById('lMsg'),btn=document.getElementById('lBtn');
-      msg.className='msg';
-      if(!email||!pass){msg.className='msg err';msg.textContent='Fill in all fields.';return;}
-      btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin me-2"></i>Signing in…';
-      try{const r=await loginUser({email,password:pass});if(r.token){saveAuth(r.token,r.user);window.location.href='/dashboard.html';}else{msg.className='msg err';msg.textContent=r.message||'Invalid credentials.';}}
-      catch{msg.className='msg err';msg.textContent='Network error.';}
-      finally{btn.disabled=false;btn.innerHTML='<i class="fas fa-sign-in-alt me-2"></i>Sign In';}
+
+    window.doLogin = async () => {
+      const email = document.getElementById('lEmail').value.trim();
+      const pass  = document.getElementById('lPass').value;
+      const msg   = document.getElementById('lMsg');
+      const btn   = document.getElementById('lBtn');
+      msg.className = 'msg';
+      if (!email || !pass) { msg.className = 'msg err'; msg.textContent = 'Fill in all fields.'; return; }
+      btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Signing in…';
+      try {
+        const r = await loginUser({ email, password: pass });
+        if (r.token) { saveAuth(r.token, r.user); window.location.href = '/dashboard.html'; }
+        else { msg.className = 'msg err'; msg.textContent = r.message || 'Invalid credentials.'; }
+      } catch { msg.className = 'msg err'; msg.textContent = 'Network error.'; }
+      finally { btn.disabled = false; btn.innerHTML = '<i class="fas fa-sign-in-alt me-2"></i>Sign In'; }
     };
-    window.doRegister=async()=>{
-      const fn=document.getElementById('rFirst').value.trim(),ln=document.getElementById('rLast').value.trim();
-      const email=document.getElementById('rEmail').value.trim(),pass=document.getElementById('rPass').value;
-      const ref=document.getElementById('rRef').value.trim();
-      const msg=document.getElementById('rMsg'),btn=document.getElementById('rBtn');
-      msg.className='msg';
-      if(!fn||!ln||!email||!pass){msg.className='msg err';msg.textContent='Fill in all required fields.';return;}
-      if(pass.length<6){msg.className='msg err';msg.textContent='Password min. 6 characters.';return;}
-      btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin me-2"></i>Creating…';
-      try{const r=await registerUser({firstName:fn,lastName:ln,email,password:pass,...(ref&&{usedReferralCode:ref})});
-        if(r.token||r.success||r.message==='User registered successfully'){
-          msg.className='msg ok';
-          msg.textContent='✓ Registration successful! Redirecting to login…';
-          btn.disabled=true;
-          setTimeout(()=>{
+
+    window.doRegister = async () => {
+      const fn    = document.getElementById('rFirst').value.trim();
+      const ln    = document.getElementById('rLast').value.trim();
+      const email = document.getElementById('rEmail').value.trim();
+      const pass  = document.getElementById('rPass').value;
+      const ref   = document.getElementById('rRef').value.trim();
+      const msg   = document.getElementById('rMsg');
+      const btn   = document.getElementById('rBtn');
+      msg.className = 'msg';
+      if (!fn || !ln || !email || !pass) { msg.className = 'msg err'; msg.textContent = 'Fill in all required fields.'; return; }
+      if (pass.length < 6) { msg.className = 'msg err'; msg.textContent = 'Password min. 6 characters.'; return; }
+      btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Creating…';
+      try {
+        const r = await registerUser({
+          firstName: fn,
+          lastName:  ln,
+          email,
+          password:  pass,
+          website:   WEBSITE_ID,          // ← "WCL" stored in DB
+          ...(ref && { referralCode: ref.toUpperCase() })
+        });
+        if (r.token || r.success || r.message === 'User registered') {
+          msg.className = 'msg ok';
+          msg.textContent = '✓ Registration successful! Redirecting to login…';
+          btn.disabled = true;
+          setTimeout(() => {
             showTab('login');
-            const lMsg=document.getElementById('lMsg');
-            lMsg.className='msg ok';
-            lMsg.textContent='✓ Account created! Please sign in.';
-          },1500);
-        }else{msg.className='msg err';msg.textContent=r.message||'Registration failed.';}}
-      catch{msg.className='msg err';msg.textContent='Network error.';}
-      finally{if(!document.getElementById('rMsg').classList.contains('ok')){btn.disabled=false;}btn.innerHTML='<i class="fas fa-user-plus me-2"></i>Create Account';}
+            const lMsg = document.getElementById('lMsg');
+            lMsg.className = 'msg ok';
+            lMsg.textContent = '✓ Account created! Please sign in.';
+          }, 1500);
+        } else {
+          msg.className = 'msg err'; msg.textContent = r.message || 'Registration failed.';
+        }
+      } catch { msg.className = 'msg err'; msg.textContent = 'Network error.'; }
+      finally {
+        if (!document.getElementById('rMsg').classList.contains('ok')) { btn.disabled = false; }
+        btn.innerHTML = '<i class="fas fa-user-plus me-2"></i>Create Account';
+      }
     };
-    document.addEventListener('keydown',e=>{if(e.key!=='Enter')return;document.getElementById('registerPanel').style.display==='none'?doLogin():doRegister();});
+
+    document.addEventListener('keydown', e => {
+      if (e.key !== 'Enter') return;
+      document.getElementById('registerPanel').style.display === 'none' ? doLogin() : doRegister();
+    });
   </script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-</body></html>
+</body>
+</html>

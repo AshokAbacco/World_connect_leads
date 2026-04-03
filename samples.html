@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Data Samples – World Connect Leads</title>
+  <title>Data Samples</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -87,9 +87,9 @@
       <div class="d-flex flex-wrap justify-content-between align-items-center gap-4">
         <div>
           <div class="d-flex align-items-center gap-2 mb-2">
-            <span style="color:rgba(255,255,255,.55);font-size:.72rem;font-weight:700;letter-spacing:.15em;">WORLD CONNECT LEADS</span>
+            <span class="hero-tagline" style="color:rgba(255,255,255,.55);font-size:.72rem;font-weight:700;letter-spacing:.15em;">WORLD CONNECT LEADS</span>
             <span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.4);display:inline-block"></span>
-            <span style="color:rgba(255,255,255,.45);font-size:.72rem;">Data Samples Portal</span>
+            <span class="hero-portal" style="color:rgba(255,255,255,.45);font-size:.72rem;">Data Samples Portal</span>
           </div>
           <h1>Sample Data<br><span style="color:#60a5fa">Downloads</span></h1>
           <p>Browse our B2B attendees data samples — fill a quick form to get instant access.</p>
@@ -146,6 +146,24 @@
 
   <script type="module">
     import { getAllSamples, requestDownload } from './JS/api.js';
+
+    // ── WEBSITE CONFIG ─────────────────────────────────────────
+    // Change this ONE constant per site before deploying:
+    //   "ibsoln"            → ibsoln.com
+    //   "clienthub"         → clienthubsolutions.com
+    //   "worldconnectleads" → worldconnectleads.com
+    const SITE_WEBSITE = "worldconnectleads";
+    const SITE_BRANDS = {
+      ibsoln:            { tagline: "IBS",                  portal: "Data Samples Portal", title: "Data Samples – IBS" },
+      clienthub:         { tagline: "CLIENT HUB SOLUTIONS", portal: "Data Samples Portal", title: "Data Samples – ClientHub Solutions" },
+      worldconnectleads: { tagline: "WORLD CONNECT LEADS",  portal: "Data Samples Portal", title: "Data Samples – World Connect Leads" },
+    };
+    const SITE = SITE_BRANDS[SITE_WEBSITE] || SITE_BRANDS.ibsoln;
+    document.querySelector('.hero-tagline').textContent = SITE.tagline;
+    document.querySelector('.hero-portal').textContent  = SITE.portal;
+    document.title = SITE.title;
+    // ──────────────────────────────────────────────────────────
+
     const PAGE=15;
     let all=[],filtered=[],page=1,active=null;
     const fmt=b=>!b?'—':b<1024?b+' B':b<1048576?(b/1024).toFixed(1)+' KB':(b/1048576).toFixed(1)+' MB';
@@ -245,7 +263,7 @@
       if(!ok)return;
       const btn=document.getElementById('dsub');btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Sending…';
       try{
-        const r=await requestDownload({sampleId:active.id,sampleName:active.originalName,name:n,email:e,companyName:c,address:a});
+        const r=await requestDownload({sampleId:active.id,sampleName:active.originalName,name:n,email:e,companyName:c,address:a,source:SITE_WEBSITE});
         if(r.success){
           document.getElementById('dlBody').innerHTML=`<div class="sbox">
             <div class="siw"><i class="fas fa-check"></i></div>

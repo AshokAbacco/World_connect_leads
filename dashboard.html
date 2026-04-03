@@ -8,6 +8,21 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
+    .stat-icon {
+  background: #fff7ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+}
+
+.coin-img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
 :root{--primary:#2563eb;--navy:#0f1f5c;--sidebar-w:240px;--topbar-h:64px;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Inter',sans-serif;background:#f4f6fb;color:#1e293b;}
@@ -161,7 +176,7 @@ body{font-family:'Inter',sans-serif;background:#f4f6fb;color:#1e293b;}
       <div class="stat-sub" id="stLeadSub">—</div>
     </div>
     <div class="stat-card">
-      <div class="stat-icon" style="background:#fff7ed;color:#ea580c"><i class="fas fa-coins"></i></div>
+      <div class="stat-icon" style="background:#fff7ed;color:#ea580c"><img src="./image/WCL_coin.png" alt="" class="coin-img"></div>
       <div class="stat-lbl">Coin Balance</div>
       <div class="stat-val" id="stCoins">—</div>
       <div class="stat-sub">available coins</div>
